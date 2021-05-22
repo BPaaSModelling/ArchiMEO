@@ -1,0 +1,97 @@
+# baseURI: http://who.int/icf
+# prefix: icf
+
+@prefix icf: <http://who.int/icf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://who.int/icf>
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+icf:AnatomicalLocalization
+  rdf:type owl:Class ;
+  rdfs:label "natomical Localization" ;
+  rdfs:subClassOf icf:ICFQualifier ;
+.
+icf:BarrierOrFacilitator
+  rdf:type owl:Class ;
+  rdfs:label "Barrier or Facilitator" ;
+  rdfs:subClassOf icf:ICFQualifier ;
+.
+icf:Capacity
+  rdf:type owl:Class ;
+  rdfs:label "Capacity" ;
+  rdfs:subClassOf icf:ICFQualifier ;
+.
+icf:ExtentOrMagnitudeOfImpairment
+  rdf:type owl:Class ;
+  rdfs:label "ExtentOrMagnitudeOfImpairment" ;
+  rdfs:subClassOf icf:ICFQualifier ;
+.
+icf:ICFCategory
+  rdf:type owl:Class ;
+  rdfs:label "ICF Category" ;
+.
+icf:ICFQualifier
+  rdf:type owl:Class ;
+  rdfs:label "ICF Qualifier" ;
+.
+icf:NatureOfChangeInBodyStructure
+  rdf:type owl:Class ;
+  rdfs:label "Nature Of Change In Body Structure" ;
+  rdfs:subClassOf icf:ICFQualifier ;
+.
+icf:Performance
+  rdf:type owl:Class ;
+  rdfs:label "Performance" ;
+  rdfs:subClassOf icf:ICFQualifier ;
+.
+icf:b110-b139_Global_mental_functions
+  rdf:type owl:Class ;
+  rdfs:label "b110-b139_Global_mental_functions" ;
+  rdfs:subClassOf icf:b1_Chapter_1_Mental_Functions ;
+.
+icf:b140-b189_Specific_mental_functions
+  rdf:type owl:Class ;
+  rdfs:label "b140-b189. Specific mental functions" ;
+  rdfs:subClassOf icf:b1_Chapter_1_Mental_Functions ;
+.
+icf:b198_Mental_functions_other_specified
+  rdf:type owl:Class ;
+  rdfs:label "b198_Mental_functions_other_specified" ;
+  rdfs:subClassOf icf:b1_Chapter_1_Mental_Functions ;
+.
+icf:b199_Mental_functions_unspecified
+  rdf:type owl:Class ;
+  rdfs:label "b199. Mental functions, unspecified" ;
+  rdfs:subClassOf icf:b1_Chapter_1_Mental_Functions ;
+.
+icf:b1_Chapter_1_Mental_Functions
+  rdf:type owl:Class ;
+  rdfs:comment "permanent link: http://purl.bioontology.org/ontology/ICF?conceptid=http%3A%2F%2Fwho.int%2Ficf%23b1" ;
+  rdfs:label "b1_Chapter_1_Mental_Functions" ;
+  rdfs:subClassOf icf:b_BodyFunction ;
+.
+icf:b_BodyFunction
+  rdf:type owl:Class ;
+  rdfs:label "Body Function " ;
+  rdfs:subClassOf icf:ICFCategory ;
+.
+icf:d_ActivitiesAndParticipation
+  rdf:type owl:Class ;
+  rdfs:label "Activities and Participation" ;
+  rdfs:subClassOf icf:ICFCategory ;
+.
+icf:e_EnvironmentalFactors
+  rdf:type owl:Class ;
+  rdfs:label "Environmental Factors" ;
+  rdfs:subClassOf icf:ICFCategory ;
+.
+icf:s_BodyStructures
+  rdf:type owl:Class ;
+  rdfs:label "Body Structures" ;
+  rdfs:subClassOf icf:ICFCategory ;
+.

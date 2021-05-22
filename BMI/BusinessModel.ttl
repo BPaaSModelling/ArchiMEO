@@ -1,0 +1,829 @@
+# baseURI: http://ikm-group.ch/bm
+# prefix: bm
+
+@prefix : <http://ikm-group.ch/bm#> .
+@prefix bm: <http://ikm-group.ch/bm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://ikm-group.ch/bm>
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+bm:AcademicInstitute
+  rdf:type owl:Class ;
+  rdfs:label "Academic Institute" ;
+  rdfs:subClassOf bm:KeyPartnershipTypes ;
+.
+bm:AccessToCustomers
+  rdf:type bm:AcquisitionOfParticularResourcesAndActivities ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:CostDriven ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:ValueDriven ;
+  rdfs:label "access to customers" ;
+.
+bm:Accessibility
+  rdf:type owl:Class ;
+  rdfs:label "Accessibility" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:AcquisitionOfParticularResourcesAndActivities
+  rdf:type owl:Class ;
+  rdfs:label "Acquisition of particular resources and activities" ;
+  rdfs:subClassOf bm:KeyPartnershipGoals ;
+.
+bm:Advertising
+  rdf:type owl:Class ;
+  rdfs:label "Advertising" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:AfterSales
+  rdf:type owl:Class ;
+  rdfs:label "5. After Sales" ;
+  rdfs:subClassOf bm:ChannelPhases ;
+.
+bm:AssetSale
+  rdf:type owl:Class ;
+  rdfs:label "Asset Sale" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:Auctions
+  rdf:type bm:DynamicPricing ;
+  rdfs:comment "Price determined by outcome of competitive bidding" ;
+  rdfs:label "Auctions" ;
+.
+bm:AutomatedService
+  rdf:type owl:Class ;
+  rdfs:label "Automated Service" ;
+  rdfs:subClassOf bm:NonHumanInteraction ;
+.
+bm:Awareness
+  rdf:type owl:Class ;
+  rdfs:label "1. Awareness" ;
+  rdfs:subClassOf bm:ChannelPhases ;
+.
+bm:BMValueTypes
+  rdf:type owl:Class ;
+  rdfs:label "Value Types" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:BrokerageFees
+  rdf:type owl:Class ;
+  rdfs:label "Brokerage Fees" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:Business
+  rdf:type owl:Class ;
+  rdfs:label "Business" ;
+  rdfs:subClassOf bm:KeyPartnershipTypes ;
+.
+bm:ChannelOwner
+  rdf:type owl:Class ;
+  rdfs:label "Channel owner" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:ChannelPhases
+  rdf:type owl:Class ;
+  rdfs:label "Channel Phases" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:ChannelTypes
+  rdf:type owl:Class ;
+  rdfs:label "Channel Types" ;
+  rdfs:subClassOf bm:CustomerInterfaceParts ;
+.
+bm:CoCreationWithBot
+  rdf:type owl:Class ;
+  rdfs:label "Co-Creation with a Bot" ;
+  rdfs:subClassOf bm:NonHumanInteraction ;
+.
+bm:CoCreationWithPeople
+  rdf:type owl:Class ;
+  rdfs:label "Co-Creation with People" ;
+  rdfs:subClassOf bm:HumanInteraction ;
+.
+bm:Communities
+  rdf:type owl:Class ;
+  rdfs:label "Communities" ;
+  rdfs:subClassOf bm:HumanInteraction ;
+.
+bm:Convenience
+  rdf:type owl:Class ;
+  rdfs:label "Convenience / usability" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:CoreProcess
+  rdf:type owl:Class ;
+  rdfs:subClassOf bm:KeyActivities ;
+.
+bm:CostDriven
+  rdf:type bm:CostStructureModels ;
+  rdfs:label "Cost-Driven" ;
+.
+bm:CostReduction
+  rdf:type owl:Class ;
+  rdfs:label "Cost Reduction" ;
+  rdfs:subClassOf bm:QuantitativeValueOfferingTypes ;
+.
+bm:CostStructureModels
+  rdf:type owl:Class ;
+  rdfs:label "Cost Structure Types" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:CostStructureScalings
+  rdf:type owl:Class ;
+  rdfs:label "Cost Structure Scaling" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:CostStructureTypes
+  rdf:type owl:Class ;
+  rdfs:subClassOf bm:FinancialAspectParts ;
+.
+bm:Culture
+  rdf:type bm:Intellectual ;
+  rdfs:label "Culture" ;
+.
+bm:CustomerCoCreation
+  rdf:type owl:Class ;
+  rdfs:label "Customer Co-Creation" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:CustomerInterfaceParts
+  rdf:type owl:Class ;
+  rdfs:label "Customer Interface" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:CustomerRelationshipTypes
+  rdf:type owl:Class ;
+  rdfs:subClassOf bm:CustomerInterfaceParts ;
+.
+bm:CustomerSegmentDependent
+  rdf:type bm:FixedMenuPricing ;
+  rdfs:comment "Price depends on the type and characteristic of a Customer Segment" ;
+  rdfs:label "Customer Segment Dependent" ;
+.
+bm:CustomerSegmentDiversification
+  rdf:type owl:Class ;
+  rdfs:label "Group Types Of Customer Segments" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:CustomerSegmentInterdependencies
+  rdf:type owl:Class ;
+  rdfs:label "Interdependency Of Customer Segments" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:CustomerSegmentTypes
+  rdf:type owl:Class ;
+  rdfs:subClassOf bm:CustomerInterfaceParts ;
+.
+bm:DedicatedPersonalAssistance
+  rdf:type owl:Class ;
+  rdfs:comment "e.g. account manager" ;
+  rdfs:label "Dedicated Personal Assistance" ;
+  rdfs:subClassOf bm:HumanInteraction ;
+.
+bm:Delivery
+  rdf:type owl:Class ;
+  rdfs:label "4. Delivery" ;
+  rdfs:subClassOf bm:ChannelPhases ;
+.
+bm:Design
+  rdf:type owl:Class ;
+  rdfs:label "Design" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:DirectChannels
+  rdf:type owl:Class ;
+  rdfs:label "Direct" ;
+  rdfs:subClassOf bm:ChannelTypes ;
+.
+bm:Diversified
+  rdf:type bm:CustomerSegmentDiversification ;
+  rdfs:label "Diversified, unrelated customer segments" ;
+.
+bm:DynamicCapability
+  rdf:type bm:Intellectual ;
+  rdfs:comment "the capability to react to changes" ;
+  rdfs:label "Dynamic Capability" ;
+.
+bm:DynamicPricing
+  rdf:type owl:Class ;
+  rdfs:comment "Prices change based on market conditions" ;
+  rdfs:label "Dynamic Pricing" ;
+  rdfs:subClassOf bm:PricingMechanismTypes ;
+.
+bm:Earned
+  rdf:type bm:ChannelOwner ;
+  rdfs:label "Earned" ;
+.
+bm:EconomiesOfScale
+  rdf:type bm:CostStructureScalings ;
+  rdfs:label "Economies of Scale" ;
+.
+bm:EconomiesOfScope
+  rdf:type bm:CostStructureScalings ;
+  rdfs:label "Economies of Scope" ;
+.
+bm:Evaluation
+  rdf:type owl:Class ;
+  rdfs:label "2. Evaluation" ;
+  rdfs:subClassOf bm:ChannelPhases ;
+.
+bm:Financial
+  rdf:type owl:Class ;
+  rdfs:label "Financial" ;
+  rdfs:subClassOf bm:KeyResourceTypes ;
+.
+bm:FinancialAspectParts
+  rdf:type owl:Class ;
+  rdfs:label "Financial Aspects" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:FixedCost
+  rdf:type owl:Class ;
+  rdfs:label "Fixed Costs" ;
+  rdfs:subClassOf bm:CostStructureTypes ;
+.
+bm:FixedMenuPricing
+  rdf:type owl:Class ;
+  rdfs:comment "Predefined prices are based on static variables" ;
+  rdfs:label "Fixed Menu Pricing" ;
+  rdfs:subClassOf bm:PricingMechanismTypes ;
+.
+bm:GettingTheJobDone
+  rdf:type owl:Class ;
+  rdfs:label "Getting the Job Done" ;
+  rdfs:subClassOf bm:QuantitativeValueOfferingTypes ;
+.
+bm:Government
+  rdf:type owl:Class ;
+  rdfs:label "Government" ;
+  rdfs:subClassOf bm:KeyPartnershipTypes ;
+.
+bm:Human
+  rdf:type owl:Class ;
+  rdfs:label "Human" ;
+  rdfs:subClassOf bm:KeyResourceTypes ;
+.
+bm:HumanInteraction
+  rdf:type owl:Class ;
+  rdfs:label "Human interaction involved" ;
+  rdfs:subClassOf bm:CustomerRelationshipTypes ;
+.
+bm:ITArchitecture
+  rdf:type bm:Physical ;
+  rdfs:label "IT-Architecture" ;
+.
+bm:IndirectChannels
+  rdf:type owl:Class ;
+  rdfs:label "Indirect" ;
+  rdfs:subClassOf bm:ChannelTypes ;
+.
+bm:Individual
+  rdf:type owl:Class ;
+  rdfs:label "Individual Person" ;
+  rdfs:subClassOf bm:KeyPartnershipTypes ;
+.
+bm:InfrastructureParts
+  rdf:type owl:Class ;
+  rdfs:label "Infrastructure" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:Intellectual
+  rdf:type owl:Class ;
+  rdfs:label "Intellectual" ;
+  rdfs:subClassOf bm:KeyResourceTypes ;
+.
+bm:KeyActivities
+  rdf:type owl:Class ;
+  rdfs:label "Key Activities" ;
+  rdfs:subClassOf bm:InfrastructureParts ;
+.
+bm:KeyPartner
+  rdf:type bm:ResourceOwner ;
+  rdfs:label "Resource owner is a key partner" ;
+.
+bm:KeyPartnershipGoals
+  rdf:type owl:Class ;
+  rdfs:label "Goal of Key Partnership" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:KeyPartnershipTypes
+  rdf:type owl:Class ;
+  rdfs:label "Key Partnership Types" ;
+  rdfs:subClassOf bm:InfrastructureParts ;
+.
+bm:KeyResourceTypes
+  rdf:type owl:Class ;
+  rdfs:label "Key Resource Parts" ;
+  rdfs:subClassOf bm:InfrastructureParts ;
+.
+bm:Knowledge
+  rdf:type bm:AcquisitionOfParticularResourcesAndActivities ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:ValueDriven ;
+  rdfs:label "knowledge" ;
+.
+bm:Leadership
+  rdf:type bm:Intellectual ;
+  rdfs:label "Leadership" ;
+.
+bm:LendingRentingLeasing
+  rdf:type owl:Class ;
+  rdfs:label "Lending/Renting/Leasing" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:Licenses
+  rdf:type bm:AcquisitionOfParticularResourcesAndActivities ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:ValueDriven ;
+  rdfs:label "licenses" ;
+.
+bm:Licensing
+  rdf:type owl:Class ;
+  rdfs:label "Licensing" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:ListPrice
+  rdf:type bm:FixedMenuPricing ;
+  rdfs:comment "Fixed prices for individual products, services, or other Value Propositions" ;
+  rdfs:label "List Price" ;
+.
+bm:MassCustomization
+  rdf:type owl:Class ;
+  rdfs:label "Mass Customization" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:MassMarket
+  rdf:type owl:Class ;
+  rdfs:label "Mass Market Customers" ;
+  rdfs:subClassOf bm:CustomerSegmentTypes ;
+.
+bm:MicroMarket
+  rdf:type owl:Class ;
+  rdfs:label "Micro Market Customers" ;
+  rdfs:subClassOf bm:CustomerSegmentTypes ;
+.
+bm:MultiSidedPlatform
+  rdf:type bm:CustomerSegmentInterdependencies ;
+  rdfs:label "Multi-sided platforms (or multi-sided markets)" ;
+.
+bm:Negotiation
+  rdf:type bm:DynamicPricing ;
+  rdfs:comment "Price negotiated between two or more partners depending on negotiation power and/or negotiation skills" ;
+  rdfs:label "Negotiation (bargaining)" ;
+.
+bm:Newness
+  rdf:type owl:Class ;
+  rdfs:label "Newness" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:NicheMarket
+  rdf:type owl:Class ;
+  rdfs:label "Niche Market Customers" ;
+  rdfs:subClassOf bm:CustomerSegmentTypes ;
+.
+bm:NoInterdependency
+  rdf:type bm:CustomerSegmentInterdependencies ;
+  rdfs:label "No Interdependency" ;
+.
+bm:NonDiversified
+  rdf:type bm:CustomerSegmentDiversification ;
+  rdfs:label "not diversified, only related customer segments" ;
+.
+bm:NonHumanInteraction
+  rdf:type owl:Class ;
+  rdfs:label "no human interaction involved" ;
+  rdfs:subClassOf bm:CustomerRelationshipTypes ;
+.
+bm:OfferingCustomization
+  rdf:type owl:Class ;
+  rdfs:label "Offering Customization" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:OfferingForms
+  rdf:type owl:Class ;
+  rdfs:label "Offering forms" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:OfferingTypes
+  rdf:type owl:Class ;
+  rdfs:label "Offering Types" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:OptimizationAndEconomyOfScale
+  rdf:type owl:Class ;
+  rdfs:label "Optimization and economy of scale" ;
+  rdfs:subClassOf bm:KeyPartnershipGoals ;
+.
+bm:OrganisationalStructure
+  rdf:type bm:Intellectual ;
+  rdfs:label "Organisational Structure" ;
+.
+bm:OutsourcingInfrastructure
+  rdf:type bm:OptimizationAndEconomyOfScale ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:CostDriven ;
+  rdfs:label "outsourcing infrastructure" ;
+.
+bm:Own
+  rdf:type bm:ChannelOwner ;
+  rdfs:label "Own" ;
+.
+bm:OwnCompany
+  rdf:type bm:ResourceOwner ;
+  rdfs:label "Resource owner is the own company" ;
+.
+bm:OwnStore
+  rdf:type owl:Class ;
+  rdfs:label "Own Store" ;
+  rdfs:subClassOf bm:IndirectChannels ;
+.
+bm:Paid
+  rdf:type bm:ChannelOwner ;
+  rdfs:label "Paid" ;
+.
+bm:PartnerStore
+  rdf:type owl:Class ;
+  rdfs:label "Partner Store" ;
+  rdfs:subClassOf bm:IndirectChannels ;
+.
+bm:Patent
+  rdf:type bm:Intellectual ;
+  rdfs:label "Patent" ;
+.
+bm:Performance
+  rdf:type owl:Class ;
+  rdfs:label "Performance" ;
+  rdfs:subClassOf bm:QuantitativeValueOfferingTypes ;
+.
+bm:PersonalAssistance
+  rdf:type owl:Class ;
+  rdfs:label "Personal Assistance" ;
+  rdfs:subClassOf bm:HumanInteraction ;
+.
+bm:Physical
+  rdf:type owl:Class ;
+  rdfs:comment "Physical is everything tangible (except people) and everything IT-related, which is not mapped to a single person but to the company" ;
+  rdfs:label "Physical" ;
+  rdfs:subClassOf bm:KeyResourceTypes ;
+.
+bm:PlatformNetwork
+  rdf:type bm:CoreProcess ;
+  rdfs:label "Platform/Network" ;
+.
+bm:Price
+  rdf:type owl:Class ;
+  rdfs:label "Price" ;
+  rdfs:subClassOf bm:QuantitativeValueOfferingTypes ;
+.
+bm:PricingMechanismTypes
+  rdf:type owl:Class ;
+  rdfs:label "Pricing Mechanisms Types" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:ProblemSolving
+  rdf:type bm:CoreProcess ;
+  rdfs:label "Problem Solving" ;
+.
+bm:Product
+  rdf:type owl:Class ;
+  rdfs:label "Product" ;
+  rdfs:subClassOf bm:OfferingForms ;
+.
+bm:ProductFeatureDependent
+  rdf:type bm:FixedMenuPricing ;
+  rdfs:comment "Price depends on the number or quality of Value Proposition features" ;
+  rdfs:label "Product Feature Dependent" ;
+.
+bm:Production
+  rdf:type bm:CoreProcess ;
+  rdfs:label "Production" ;
+.
+bm:Purchase
+  rdf:type owl:Class ;
+  rdfs:label "3. Purchase" ;
+  rdfs:subClassOf bm:ChannelPhases ;
+.
+bm:QualitativeValueOfferingTypes
+  rdf:type owl:Class ;
+  rdfs:label "Qualitative Value Offering Types" ;
+  rdfs:subClassOf bm:OfferingTypes ;
+.
+bm:QuantitativeValueOfferingTypes
+  rdf:type owl:Class ;
+  rdfs:label "Quantitative Value Offering Types" ;
+  rdfs:subClassOf bm:OfferingTypes ;
+.
+bm:RealTimeMarket
+  rdf:type bm:DynamicPricing ;
+  rdfs:comment "Price is established dynamically based on supply and demand" ;
+  rdfs:label "Real-time-market" ;
+.
+bm:ReduceCosts
+  rdf:type bm:OptimizationAndEconomyOfScale ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:CostDriven ;
+  rdfs:label "reduce costs" ;
+.
+bm:ReductionOfRiskAndUncertainty
+  rdf:type bm:KeyPartnershipGoals ;
+  rdfs:label "Reduction Of Risk And Uncertainty" ;
+.
+bm:ResourceOwner
+  rdf:type owl:Class ;
+  rdfs:label "Owner of the resource" ;
+  rdfs:subClassOf owl:Thing ;
+.
+bm:RevenueStreamTypes
+  rdf:type owl:Class ;
+  rdfs:label "Types of revenue stream " ;
+  rdfs:subClassOf bm:FinancialAspectParts ;
+.
+bm:RiskReduction
+  rdf:type owl:Class ;
+  rdfs:label "Risk Reduction" ;
+  rdfs:subClassOf bm:QuantitativeValueOfferingTypes ;
+.
+bm:SalesForce
+  rdf:type owl:Class ;
+  rdfs:label "Sales Force" ;
+  rdfs:subClassOf bm:DirectChannels ;
+.
+bm:SegmentedMarket
+  rdf:type owl:Class ;
+  rdfs:label "Segmented Market Customers" ;
+  rdfs:subClassOf bm:CustomerSegmentTypes ;
+.
+bm:SelfService
+  rdf:type owl:Class ;
+  rdfs:label "Self-Service" ;
+  rdfs:subClassOf bm:NonHumanInteraction ;
+.
+bm:Service
+  rdf:type owl:Class ;
+  rdfs:label "Service" ;
+  rdfs:subClassOf bm:OfferingForms ;
+.
+bm:SharingInfrastructure
+  rdf:type bm:OptimizationAndEconomyOfScale ;
+  bm:goalOfKeyPartnership_requires_CostStructureModels bm:CostDriven ;
+  rdfs:label "sharing infrastructure" ;
+.
+bm:SpeedOfService
+  rdf:type owl:Class ;
+  rdfs:label "Speed of Service" ;
+  rdfs:subClassOf bm:QuantitativeValueOfferingTypes ;
+.
+bm:Standardized
+  rdf:type bm:OfferingCustomization ;
+  rdfs:label "Standardized" ;
+.
+bm:Status
+  rdf:type owl:Class ;
+  rdfs:label "Status / Brand" ;
+  rdfs:subClassOf bm:QualitativeValueOfferingTypes ;
+.
+bm:SubscriptionFee
+  rdf:type owl:Class ;
+  rdfs:label "Subscription Fees" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:SupportProcess
+  rdf:type owl:Class ;
+  rdfs:subClassOf bm:KeyActivities ;
+.
+bm:Tailored
+  rdf:type bm:OfferingCustomization ;
+  bm:offering_requires_KeyActivities bm:ProblemSolving ;
+  rdfs:comment "Provide a tailored solution to each customer" ;
+  rdfs:label "Solution" ;
+.
+bm:Technologies
+  rdf:type bm:Physical ;
+  rdfs:label "Technologies" ;
+.
+bm:UsageFee
+  rdf:type owl:Class ;
+  rdfs:comment "Provide a tailored solution to each customer" ;
+  rdfs:label "Subscription Fees" ;
+  rdfs:subClassOf bm:RevenueStreamTypes ;
+.
+bm:ValueCapture
+  rdf:type bm:BMValueTypes ;
+  bm:financialAspects_hasValueType_ValueCapture bm:FinancialAspectParts ;
+  bm:valueType_isValueTypeFor_FinancialAspects bm:FinancialAspectParts ;
+  rdfs:label "Value Capture" ;
+.
+bm:ValueCreation
+  rdf:type bm:BMValueTypes ;
+  bm:infrastructure_hasValueType_ValueCreation bm:InfrastructureParts ;
+  bm:valueType_isValueTypeFor_Infrastructure bm:InfrastructureParts ;
+  rdfs:label "Value Creation" ;
+.
+bm:ValueDelivery
+  rdf:type bm:BMValueTypes ;
+  bm:customerInterface_hasValueType_ValueDelivery bm:CustomerInterfaceParts ;
+  bm:valueType_isValueTypeFor_CustomerInterface bm:CustomerInterfaceParts ;
+  rdfs:label "Value Delivery" ;
+.
+bm:ValueDriven
+  rdf:type bm:CostStructureModels ;
+  rdfs:label "Value-Driven" ;
+.
+bm:ValueProposition
+  rdf:type bm:BMValueTypes ;
+  bm:offering_hasValueType_ValueProposition bm:OfferingForms ;
+  bm:valueType_isValueTypeFor_Offering bm:OfferingForms ;
+  rdfs:label "Value Proposition" ;
+.
+bm:VariableCost
+  rdf:type owl:Class ;
+  rdfs:label "Variable Costs" ;
+  rdfs:subClassOf bm:CostStructureTypes ;
+.
+bm:VolumeDependent
+  rdf:type bm:FixedMenuPricing ;
+  rdfs:comment "Price as a function of the quantity purchased" ;
+  rdfs:label "Volume Dependent" ;
+.
+bm:WebSale
+  rdf:type owl:Class ;
+  rdfs:label "Web Sale" ;
+  rdfs:subClassOf bm:DirectChannels ;
+.
+bm:Wholesaler
+  rdf:type owl:Class ;
+  rdfs:label "Wholesaler" ;
+  rdfs:subClassOf bm:IndirectChannels ;
+.
+bm:YieldManagement
+  rdf:type bm:DynamicPricing ;
+  rdfs:comment "Price depends on inventory and time of purchase (normally used for perishable resources such as hotel rooms or airline seats)" ;
+  rdfs:label "Yield management" ;
+.
+bm:customerInterface_hasValueType_ValueDelivery
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:CustomerInterfaceParts ;
+  rdfs:label "Customer Interface has Value Type Value Delivery" ;
+  rdfs:range bm:BMValueTypes ;
+  rdfs:subPropertyOf bm:hasValueType ;
+.
+bm:customerRelationships_requires_CostStructureModels
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:CustomerRelationshipTypes ;
+  rdfs:label "customer Relationships requires Cost Structure Models" ;
+  rdfs:range bm:CostStructureModels ;
+  rdfs:subPropertyOf bm:requires ;
+.
+bm:customerSegments_hasChannelType_Channels
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:CustomerSegmentTypes ;
+  rdfs:label "Customer Segments has Channel Type Channels" ;
+.
+bm:customerSegments_hasRelationType_CustomerRelationships
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:CustomerSegmentTypes ;
+  rdfs:label "CustomerSegments has relation type CustomerRelationships" ;
+  rdfs:range bm:CustomerRelationshipTypes ;
+.
+bm:directChannelDelivery_hasChannelOwner_ChannelOwner
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:DirectChannels ;
+  rdfs:label "\"Direct\" Channel Delivery has Channel Owner \"Channel Owner\"" ;
+  rdfs:range bm:ChannelOwner ;
+  rdfs:subPropertyOf bm:hasChannelOwner ;
+.
+bm:enables
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "enables" ;
+.
+bm:financialAspects_hasValueType_ValueCapture
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Financial Aspects is of value type Value Capture" ;
+  rdfs:domain bm:FinancialAspectParts ;
+  rdfs:label "Financial Aspects is Value Capture" ;
+  rdfs:range bm:BMValueTypes ;
+  rdfs:subPropertyOf bm:hasValueType ;
+.
+bm:goalOfKeyPartnership_requires_CostStructureModels
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:KeyPartnershipGoals ;
+  rdfs:label "Goal Of Key Partnership requires Cost Structure Models" ;
+  rdfs:range bm:CostStructureModels ;
+  rdfs:subPropertyOf bm:requires ;
+.
+bm:hasChannelOwner
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has Channel Owner" ;
+.
+bm:hasValueType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "has connection to a type of value in the class ValueTypes" ;
+  rdfs:label "has ValueType" ;
+.
+bm:indirectChannelDelivery_hasChannelOwner_ChannelOwner
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:IndirectChannels ;
+  rdfs:label "\"indirect\" Channel Delivery has Channel Owner \"Channel Owner\"" ;
+  rdfs:range bm:ChannelOwner ;
+  rdfs:subPropertyOf bm:hasChannelOwner ;
+.
+bm:infrastructure_hasValueType_ValueCreation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Infrastructure is of value type Value Creation" ;
+  rdfs:domain bm:InfrastructureParts ;
+  rdfs:label "Infrastructure is Value Creation" ;
+  rdfs:range bm:BMValueTypes ;
+  rdfs:subPropertyOf bm:hasValueType ;
+.
+bm:isValueTypeFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "is value type for" ;
+.
+bm:keyActivities_enables_Offering
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:KeyActivities ;
+  rdfs:label "Key Activities enables Offering" ;
+  rdfs:range bm:OfferingForms ;
+  rdfs:subPropertyOf bm:enables ;
+.
+bm:keyResources_requires_KeyPartnerships
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Key Resource requires Key Partnerships" ;
+  rdfs:subPropertyOf bm:requires ;
+.
+bm:keyRessources_enables_Offering
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Key Ressources enables Offering" ;
+  rdfs:range bm:OfferingForms ;
+  rdfs:subPropertyOf bm:enables ;
+.
+bm:offeringType_providesRevenueThrough_RevenueStreamTypes
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Offering Type provides revenue through Revenue Stream Types" ;
+  rdfs:range bm:RevenueStreamTypes ;
+.
+bm:offering_hasValueType_ValueProposition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Offering is of value type Value Proposition" ;
+  rdfs:domain bm:OfferingForms ;
+  rdfs:label "Offering is Value Proposition" ;
+  rdfs:range bm:BMValueTypes ;
+  rdfs:subPropertyOf bm:hasValueType ;
+.
+bm:offering_providesValueTo_CustomerSegments
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:OfferingForms ;
+  rdfs:label "offering provides value to Customer Segments" ;
+  rdfs:range bm:CustomerSegmentTypes ;
+.
+bm:offering_requires_CostStructureModels
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:OfferingForms ;
+  rdfs:label "Offering requires Cost Structure Models" ;
+  rdfs:range bm:CostStructureModels ;
+  rdfs:subPropertyOf bm:requires ;
+.
+bm:offering_requires_KeyActivities
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:OfferingForms ;
+  rdfs:label "Offering requires Key Activities" ;
+  rdfs:range bm:KeyActivities ;
+  rdfs:subPropertyOf bm:requires ;
+.
+bm:requires
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "requires" ;
+.
+bm:revenueStreamTypes_definesPricesBasedOn_PricingMechanisms
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:RevenueStreamTypes ;
+  rdfs:label "Revenue Stream Types defines prices based on Pricing Mechanisms" ;
+  rdfs:range bm:PricingMechanismTypes ;
+.
+bm:valueType_isValueTypeFor_CustomerInterface
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:BMValueTypes ;
+  rdfs:label "ValueType provides value to CustomerInterface" ;
+  rdfs:range bm:CustomerInterfaceParts ;
+  rdfs:subPropertyOf bm:isValueTypeFor ;
+.
+bm:valueType_isValueTypeFor_FinancialAspects
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:BMValueTypes ;
+  rdfs:label "ValueType provides value to Financial Aspects" ;
+  rdfs:range bm:FinancialAspectParts ;
+  rdfs:subPropertyOf bm:isValueTypeFor ;
+.
+bm:valueType_isValueTypeFor_Infrastructure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:BMValueTypes ;
+  rdfs:label "ValueType provides value to Infrastructure" ;
+  rdfs:range bm:InfrastructureParts ;
+  rdfs:subPropertyOf bm:isValueTypeFor ;
+.
+bm:valueType_isValueTypeFor_Offering
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain bm:BMValueTypes ;
+  rdfs:label "ValueType provides value to Offering" ;
+  rdfs:range bm:OfferingForms ;
+  rdfs:subPropertyOf bm:isValueTypeFor ;
+.

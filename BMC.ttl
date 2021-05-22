@@ -1,0 +1,1489 @@
+# baseURI: http://fhnw.ch/BMC
+
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix lo: <http://fhnw.ch/modelingEnvironment/LanguageOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sapscenes: <http://fhnw.ch/SAPScenes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix po: <http://fhnw.ch/modelingEnvironment/PaletteOntology#> .
+@prefix BMC: <http://fhnw.ch/BMC#> .
+
+#  I'm keeping the following as a reference
+
+# lo:SAPScene
+#   rdf:type lo:ModelingLanguage ;
+#   lo:hasModelingView lo:SAPSceneModelingView ;
+#   rdfs:label "SAP Scene" ;
+# .
+
+# lo:SAPSceneModelingView
+#   rdf:type lo:ModelingView ;
+#   lo:isMainModelingView "true"^^xsd:boolean ;
+#   lo:viewIsPartOfModelingLanguage lo:SAPScene ;
+#   rdfs:label "SAP Scenes Modeling View" ;
+# .
+
+# sapscenes:SceneObject
+#   rdf:type owl:Class ;
+#   rdfs:label "SceneObject" ;
+#   rdfs:subClassOf lo:ModelingElement ;
+# .
+
+# sapscenes:Background
+#   rdf:type owl:Class ;
+#   rdfs:label "Background" ;
+#   rdfs:subClassOf sapscenes:SceneObject ;
+# .
+
+#  sapscenes:Office
+#  rdf:type owl:Class ;
+#  rdfs:label "Office" ;
+#  rdfs:subClassOf sapscenes:Background ;
+#  .
+
+#  po:Office
+#  rdf:type po:PaletteElement ;
+#  po:paletteConstructBelongsToModelingView lo:SAPScenesModelingView ;
+#  po:paletteConstructHasHeight 70 ;
+#  po:paletteConstructHasModelImage "Office.PNG" ;
+#  po:paletteConstructHasPaletteThumbnail "Thumbnail_Office.PNG" ;
+#  po:paletteConstructHasParentPaletteConstruct po:Background ;
+#  po:paletteConstructHasWidth 100 ;
+#  po:paletteConstructIsGroupedInPaletteCategory po:SAPScenesElements ;
+#  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#  po:paletteConstructIsRelatedToModelingLanguageConstruct sapscenes:Office ;
+#  rdfs:label "Office" ;
+#  .
+
+# po:SAPScenesElements
+#   rdf:type po:PaletteCategory ;
+#   po:paletteCategoryIsShownInModelingView lo:SAPSceneModelingView ;
+#   rdfs:label "SAP Scenes Elements" ;
+# .
+
+
+#--- to be added to ModellingLanguageOntology.ttl
+lo:BMC
+  rdf:type lo:ModelingLanguage ;
+  lo:hasModelingView lo:BMCModelingView ;
+  rdfs:label "Business Model Canvas language" ;
+.
+lo:BMCModelingView
+  rdf:type lo:ModelingView ;
+  lo:isMainModelingView "true"^^xsd:boolean ;
+  lo:viewIsPartOfModelingLanguage lo:BMC ;
+  rdfs:label "BMC Modeling View" ;
+.
+
+#--- to be added to PaletteOntology.ttl
+
+# GROUPS/BUSINESS MODEL PARTS IN THE BELOW
+
+# po:BMCElements #BMC palette sub-group e.g. Key Parnerns, Value Proposition etc... ---- PARTS
+#     rdf:type po:PaletteCategory ;
+#     po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+#     rdfs:label "Business Model Canvas Elements" ;
+# .
+
+po:KeyPartners #Key Partners
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 9 ;
+    rdfs:label "Key Partners" ;
+.
+
+po:KeyActivities #Key Activities
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 8 ;
+    rdfs:label "Key Activities" ;
+.
+
+po:KeyResources #Key Resources
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 7 ;
+    rdfs:label "Key Resources" ;
+.
+
+po:ValueProposition #Value Proposition
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 3 ;
+    rdfs:label "Value Proposition" ;
+.
+
+po:CustomerRelationships #Customer Relationships
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 5 ;
+    rdfs:label "Customer Relationships" ;
+.
+
+po:Channels #Channels
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 4 ;
+    rdfs:label "Channels" ;
+.
+
+po:CustomerSegments #Customer Segments
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 2 ;
+    rdfs:label "Customer Segments" ;
+.
+
+po:CostStructure #Cost Structure
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 10 ;
+    rdfs:label "Cost Structure" ;
+.
+
+po:RevenueStreams #Revenue Streams
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 6 ;
+    rdfs:label "Revenue Streams" ;
+.
+
+po:SetUpInformation #Revenue Streams
+    rdf:type po:PaletteCategory ;
+    po:paletteCategoryIsShownInModelingView lo:BMCModelingView ;
+    po:paletteCategoryOrderNumber 1 ;
+    rdfs:label "Set-up Information" ;
+.
+
+# ---------- KEY PARTNERS
+po:Individual
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Individual.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Individual.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyPartners ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Individual ; 
+  rdfs:label "Individual" ;
+.
+
+po:Government
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Government.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Government.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyPartners ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Government ; 
+  rdfs:label "Government" ;
+.
+
+po:BusinessPartner
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BusinessPartner.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BusinessPartner.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyPartners ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:BusinessPartner ; 
+  rdfs:label "Business Partner" ;
+.
+
+po:AcademicInstitute
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "AcademicInstitute.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_AcademicInstitute.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyPartners ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:AcademicInstitute ; 
+  rdfs:label "Academic Institute" ;
+.
+
+#--------- KEY ACTIVITIES
+
+po:CoreProcess
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CoreProcess.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CoreProcess.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyActivities ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:CoreProcess ; 
+  rdfs:label "Core Process" ;
+.
+
+po:SupportProcess
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SupportProcess.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SupportProcess.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyActivities ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SupportProcess ; 
+  rdfs:label "Support Process" ;
+.
+
+#--------------KEY RESOURCES /alternative or possible to be added tangible/intangible
+po:Financial
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Financial.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Financial.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyResources ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Financial ; 
+  rdfs:label "Financial Resource" ;
+.
+po:HumanResource
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "HumanResource.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_HumanResource.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyResources ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:HumanResource ; 
+  rdfs:label "Human Resource" ;
+.
+
+po:Intellectual
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Intellectual.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Intellectual.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyResources ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Intellectual ; 
+  rdfs:label "Intellectual Resource" ;
+.
+
+po:Physical
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Physical.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Physical.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:KeyResources ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Physical ; 
+  rdfs:label "Physical Resource" ;
+.
+
+
+#-----------------VALUE PROPOSITION - QUALITATIVE
+po:QualitativeVP
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "QualitativeVP.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_QualitativeVP.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:QualitativeVP ; 
+  rdfs:label "Qualitative Value Propositions" ;
+.
+po:Accessibility
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Accessibility.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Accessibility.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Accessibility ; 
+  rdfs:label "Accessibility" ;
+.
+po:Convenience
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Convenience.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Convenience.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Convenience ; 
+  rdfs:label "Convenience" ;
+.
+po:CustomerCoCreation
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CustomerCoCreation.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CustomerCoCreation.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:CustomerCoCreation ; 
+  rdfs:label "Customer Co Creation" ;
+.
+
+po:Design
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Design.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Design.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Design ; 
+  rdfs:label "Design" ;
+.
+
+po:MassCustomization
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "MassCustomization.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_MassCustomization.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:MassCustomization ; 
+  rdfs:label "Mass Customization" ;
+.
+
+po:Newness
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Newness.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Newness.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Newness ; 
+  rdfs:label "Newness" ;
+.
+
+po:Status
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Status.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Status.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QualitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Status ; 
+  rdfs:label "Status" ;
+.
+#-----------------VALUE PROPOSITION - QUANTITATIVE
+po:QuantitativeVP
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "QuantitativeVP.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_QuantitativeVP.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:QuantitativeVP ; 
+  rdfs:label "Quantitative Value Propositions" ;
+.
+
+po:CostReduction
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CostReduction.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CostReduction.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QuantitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:CostReduction ; 
+  rdfs:label "Cost Reduction" ;
+.
+
+po:GettingTheJobDone
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "GettingTheJobDone.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_GettingTheJobDone.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QuantitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:GettingTheJobDone ; 
+  rdfs:label "Getting The Job Done" ;
+.
+
+po:Performance
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Performance.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Performance.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QuantitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Performance ; 
+  rdfs:label "Performance" ;
+.
+po:Price
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Price.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Price.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QuantitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Price ; 
+  rdfs:label "Price" ;
+.
+
+po:RiskReduction
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "RiskReduction.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_RiskReduction.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QuantitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:RiskReduction ; 
+  rdfs:label "Risk Reduction" ;
+.
+
+po:SpeedOfService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SpeedOfService.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SpeedOfService.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:QuantitativeVP ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:ValueProposition ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SpeedOfService ; 
+  rdfs:label "Speed Of Service" ;
+.
+#--------------------------CUSTOMER RELATIONSHIP ---- HUMAN INTERACTION
+po:HumanInteraction
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "HumanInteraction.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_HumanInteraction.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:HumanInteraction ; 
+  rdfs:label "Human Interactions" ;
+.
+
+po:CoCreationWithPeople
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CoCreationWithPeople.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CoCreationWithPeople.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:HumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:CoCreationWithPeople ; 
+  rdfs:label "Co Creation With People" ;
+.
+
+po:Communities
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Communities.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Communities.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:HumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Communities ; 
+  rdfs:label "Communities" ;
+.
+
+po:DedicatedPersonalAssistance
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "DedicatedPersonalAssistance.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DedicatedPersonalAssistance.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:HumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:DedicatedPersonalAssistance ; 
+  rdfs:label "Dedicated Personal Assistance" ;
+.
+
+po:PersonalAssistance
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "PersonalAssistance.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_PersonalAssistance.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:HumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:PersonalAssistance ; 
+  rdfs:label "Personal Assistance" ;
+.
+
+#--------------------------CUSTOMER RELATIONSHIP ---- NON-HUMAN INTERACTION
+po:NonHumanInteraction
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "NonHumanInteraction.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_NonHumanInteraction.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:NonHumanInteraction ; 
+  rdfs:label "Non-Human Interactions" ;
+.
+
+po:AutomatedService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "AutomatedService.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_AutomatedService.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:NonHumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:AutomatedService ; 
+  rdfs:label "Automated Service" ;
+.
+
+po:CoCreationWithBot
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "CoCreationWithBot.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CoCreationWithBot.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:NonHumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:CoCreationWithBot ; 
+  rdfs:label "CoCreation With Bot" ;
+.
+
+po:SelfService
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SelfService.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SelfService.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:NonHumanInteraction ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerRelationships ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SelfService ; 
+  rdfs:label "Self-Service" ;
+.
+
+# #---------------------------CHANNELS DIRECT
+# # we choose to use the types(adding the instances, grouping is Direct and Indirect), but the phases should be an attribute (at least)
+# po:DirectChannel
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "DirectChannel.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_DirectChannel.PNG" ; 
+#   # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:DirectChannel ; 
+#   rdfs:label "Direct Channels" ;
+# .
+
+# po:SalesForce
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "SalesForce.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_SalesForce.PNG" ; 
+#   po:paletteConstructHasParentPaletteConstruct po:DirectChannel ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SalesForce ; 
+#   rdfs:label "Sales Force" ;
+# .
+
+# po:WebSale
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "WebSale.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_WebSale.PNG" ; 
+#   po:paletteConstructHasParentPaletteConstruct po:DirectChannel ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:WebSale ; 
+#   rdfs:label "Web Sale" ;
+# .
+
+# #------------- CHANNEL INDIRECT
+# po:IndirectChannel
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "IndirectChannel.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_IndirectChannel.PNG" ; 
+#   # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:IndirectChannel ; 
+#   rdfs:label "Indirect Channels" ;
+# .
+
+# po:OwnStore
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "OwnStore.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_OwnStore.PNG" ; 
+#   po:paletteConstructHasParentPaletteConstruct po:IndirectChannel ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:OwnStore ; 
+#   rdfs:label "Own Store" ;
+# .
+
+# po:PartnerStore
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "PartnerStore.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_PartnerStore.PNG" ; 
+#   po:paletteConstructHasParentPaletteConstruct po:IndirectChannel ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:PartnerStore ; 
+#   rdfs:label "Partner Store" ;
+# .
+
+# po:Wholesaler
+#   rdf:type po:PaletteElement ;
+#   po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+#   po:paletteConstructHasHeight 70 ;
+#   po:paletteConstructHasModelImage "Wholesaler.PNG" ; 
+#   po:paletteConstructHasPaletteThumbnail "Thumbnail_Wholesaler.PNG" ; 
+#   po:paletteConstructHasParentPaletteConstruct po:IndirectChannel ; 
+#   po:paletteConstructHasWidth 120 ;
+#   po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+#   po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+#   po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Wholesaler ; 
+#   rdfs:label "Wholesaler" ;
+# .
+
+
+#---------------------------CHANNELS Own
+# we choose to use the types(adding the instances, grouping is Direct and Indirect), but the phases should be an attribute (at least)
+po:OwnChannel
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "OwnChannel.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_OwnChannel.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:OwnChannel ; 
+  rdfs:label "Own Channels" ;
+.
+
+po:SalesForce
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SalesForce.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SalesForce.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:OwnChannel ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SalesForce ; 
+  rdfs:label "Sales Force" ;
+.
+
+po:WebSale
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "WebSale.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_WebSale.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:OwnChannel ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:WebSale ; 
+  rdfs:label "Web Sale" ;
+.
+
+po:OwnStore
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "OwnStore.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_OwnStore.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:OwnChannel ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:OwnStore ; 
+  rdfs:label "Own Store" ;
+.
+
+#------------- CHANNEL Partner
+po:PartnerChannel
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "PartnerChannel.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_PartnerChannel.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:PartnerChannel ; 
+  rdfs:label "Partner Channels" ;
+.
+
+po:PartnerStore
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "PartnerStore.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_PartnerStore.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:PartnerChannel ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:PartnerStore ; 
+  rdfs:label "Partner Store" ;
+.
+
+po:Wholesaler
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Wholesaler.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Wholesaler.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:PartnerChannel ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:Channels ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Wholesaler ; 
+  rdfs:label "Wholesaler" ;
+.
+
+#------------ CUSTOMER SEGMENTS
+po:MassMarket
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "MassMarket.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_MassMarket.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerSegments ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:MassMarket ; 
+  rdfs:label "Mass Market" ;
+.
+po:MicroMarket #diversified & multisides AGGREGATED
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "MicroMarket.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_MicroMarket.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerSegments ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:MicroMarket ; 
+  rdfs:label "Micro Market" ;
+.
+po:NicheMarket
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "NicheMarket.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_NicheMarket.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerSegments ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:NicheMarket ; 
+  rdfs:label "Niche Market" ;
+.
+po:SegmentedMarket
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SegmentedMarket.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SegmentedMarket.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CustomerSegments ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SegmentedMarket ; 
+  rdfs:label "Segmented Market" ;
+.
+
+#------------COST STRUCTURE : ATTRIBUTES: FINANCIAL ASPECTS (FIXED & VARIABLE), MODEL(COST-DRIVE, VALUE-DRIVEN ), FORM SCALING (ECONOMY OF SCALE, ECONOMY OF SCOPE)
+po:FixedCost
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "FixedCost.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_FixedCost.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CostStructure ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:FixedCost ; 
+  rdfs:label "Fixed Cost" ;
+.
+po:VariableCost
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "VariableCost.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_VariableCost.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:CostStructure ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:VariableCost ; 
+  rdfs:label "Variable Cost" ;
+.
+#------------ REVENUE STREAMS - Direct Exchange Revenues
+po:AssetSale
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "AssetSale.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_AssetSale.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:AssetSale ; 
+  rdfs:label "Asset Sale" ;
+.
+#------------ REVENUE STREAMS - Fee-based Revenue
+po:FeeBasedRevenue
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "FeeBasedRevenue.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_FeeBasedRevenue.PNG" ; 
+  # po:paletteConstructHasParentPaletteConstruct po:parentBMCObject ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:FeeBasedRevenue ; 
+  rdfs:label "Fee-based Revenues" ;
+.
+po:Advertising
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Advertising.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Advertising.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:FeeBasedRevenue ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Advertising ; 
+  rdfs:label "Advertising" ;
+.
+po:BrokerageFee
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "BrokerageFee.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_BrokerageFee.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:FeeBasedRevenue ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams  ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:BrokerageFee ; 
+  rdfs:label "Brokerage Fee" ;
+  .
+po:LendingRentingLeasing
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "LendingRentingLeasing.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_LendingRentingLeasing.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:FeeBasedRevenue ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:LendingRentingLeasing ; 
+  rdfs:label "Lending, Renting, Leasing" ;
+.
+po:Licensing
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "Licensing.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_Licensing.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:FeeBasedRevenue ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams  ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Licensing ; 
+  rdfs:label "Licensing" ;
+.
+po:SubscriptionFee
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "SubscriptionFee.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_SubscriptionFee.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:FeeBasedRevenue ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams  ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:SubscriptionFee ; 
+  rdfs:label "Subscription Fee" ;
+.
+po:UsageFee
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 70 ;
+  po:paletteConstructHasModelImage "UsageFee.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_UsageFee.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:FeeBasedRevenue ; 
+  po:paletteConstructHasWidth 120 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:RevenueStreams  ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:UsageFee ; 
+  rdfs:label "Usage Fee" ;
+.
+#------------ Set Up Information
+po:DefaultBackgroundBMC
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 700 ;
+  po:paletteConstructHasModelImage "DefaultBackgroundBMC.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DefaultBackgroundBMC.PNG" ; 
+  po:paletteConstructHasWidth 1200 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SetUpInformation ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:Background ;
+  rdfs:label "" ;
+.
+#--------Set Up Information - Canvas Description
+po:CanvasDescription
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 55 ;
+  po:paletteConstructHasModelImage "CanvasDescription.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_CanvasDescription.PNG" ; 
+  po:paletteConstructHasWidth 170 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SetUpInformation ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:CanvasDescription ;
+  rdfs:label "Canvas description" ;
+.
+po:DesignedFor
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 55 ;
+  po:paletteConstructHasModelImage "DesignedFor.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DesignedFor.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:CanvasDescription ; 
+  po:paletteConstructHasWidth 170 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SetUpInformation ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:DesignedFor ;
+  rdfs:label "<Designed for>" ;
+.
+po:DesignedBy
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 55 ;
+  po:paletteConstructHasModelImage "DesignedBy.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DesignedBy.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:CanvasDescription ; 
+  po:paletteConstructHasWidth 170 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SetUpInformation ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:DesignedBy ;
+  rdfs:label "<Designed by>" ;
+.
+po:DateOfCreation
+  rdf:type po:PaletteElement ;
+  po:paletteConstructBelongsToModelingView lo:BMCModelingView ; 
+  po:paletteConstructHasHeight 55 ;
+  po:paletteConstructHasModelImage "DateOfCreation.PNG" ; 
+  po:paletteConstructHasPaletteThumbnail "Thumbnail_DateOfCreation.PNG" ; 
+  po:paletteConstructHasParentPaletteConstruct po:CanvasDescription ; 
+  po:paletteConstructHasWidth 170 ;
+  po:paletteConstructIsGroupedInPaletteCategory po:SetUpInformation ; 
+  po:paletteConstructIsHiddenFromPalette "false"^^xsd:boolean ;
+  po:paletteConstructIsRelatedToModelingLanguageConstruct BMC:DateOfCreation ;
+  rdfs:label "<Date of creation>" ;
+.
+
+#----------------------------------- to be kept in BMC.TTL
+# BMC:BMCObjectTemplate
+#   rdf:type owl:Class ;
+#   rdfs:label "BMCObject" ;
+#   rdfs:subClassOf lo:ModelingElement ;
+# .
+
+#---------------------KEY PARTNERS
+BMC:Individual
+  rdf:type owl:Class ;
+  rdfs:label "Individual" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:Government
+  rdf:type owl:Class ;
+  rdfs:label "Government" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:BusinessPartner
+  rdf:type owl:Class ;
+  rdfs:label "Business Partner" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:AcademicInstitute
+  rdf:type owl:Class ;
+  rdfs:label "AcademicInstitute" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+#---------------------KEY ACTIVITIES
+
+
+BMC:CoreProcess
+  rdf:type owl:Class ;
+  rdfs:label "Core Process" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:SupportProcess
+  rdf:type owl:Class ;
+  rdfs:label "Support Process" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+#-------------- KEY RESOURCES
+
+BMC:Financial
+  rdf:type owl:Class ;
+  rdfs:label "Financial Resource" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:HumanResource
+rdf:type owl:Class ;
+  rdfs:label "Human Resource" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:Intellectual 
+rdf:type owl:Class ;
+  rdfs:label "Intellectual Resource" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:Physical 
+rdf:type owl:Class ;
+  rdfs:label "Physical Resource" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+#------------ VALUE PROPOSITION - QUALITATIVE
+BMC:QualitativeVP
+rdf:type owl:Class ;
+  rdfs:label "Qualitative Value Propositions" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+BMC:Accessibility
+rdf:type owl:Class ;
+  rdfs:label "Accessibility" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+BMC:Convenience
+rdf:type owl:Class ;
+  rdfs:label "Convenience" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+BMC:CustomerCoCreation
+rdf:type owl:Class ;
+  rdfs:label "CustomerCoCreation" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+BMC:Design
+rdf:type owl:Class ;
+  rdfs:label "Design" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+BMC:MassCustomization
+rdf:type owl:Class ;
+  rdfs:label "Mass Customization" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+BMC:Newness
+rdf:type owl:Class ;
+  rdfs:label "Newness" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+BMC:Status
+rdf:type owl:Class ;
+  rdfs:label "Status" ;
+  rdfs:subClassOf lo:QualitativeVP ;
+.
+
+#------------ VALUE PROPOSITION - QUANTITATIVE
+BMC:QuantitativeVP
+rdf:type owl:Class ;
+  rdfs:label "Quantitative Value Propositions" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:CostReduction
+rdf:type owl:Class ;
+  rdfs:label "Cost Reduction" ;
+  rdfs:subClassOf lo:QuantitativeVP ;
+.
+BMC:GettingTheJobDone
+rdf:type owl:Class ;
+  rdfs:label "Getting The Job Done" ;
+  rdfs:subClassOf lo:QuantitativeVP ;
+.
+
+BMC:Performance
+rdf:type owl:Class ;
+  rdfs:label "Performance" ;
+  rdfs:subClassOf lo:QuantitativeVP ;
+.
+
+BMC:Price
+rdf:type owl:Class ;
+  rdfs:label "Price" ;
+  rdfs:subClassOf lo:QuantitativeVP ;
+.
+
+BMC:RiskReduction
+rdf:type owl:Class ;
+  rdfs:label "Risk Reduction" ;
+  rdfs:subClassOf lo:QuantitativeVP ;
+.
+
+BMC:SpeedOfService
+rdf:type owl:Class ;
+  rdfs:label "Speed Of Service" ;
+  rdfs:subClassOf lo:QuantitativeVP ;
+.
+
+#--------------------------Customer Relationships - Human Interaction 
+BMC:HumanInteraction
+rdf:type owl:Class ;
+  rdfs:label "Human Interactions" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:CoCreationWithPeople
+rdf:type owl:Class ;
+  rdfs:label "Co Creation With People" ;
+  rdfs:subClassOf lo:HumanInteraction ;
+.
+BMC:Communities
+rdf:type owl:Class ;
+  rdfs:label "Communities" ;
+  rdfs:subClassOf lo:HumanInteraction ;
+.
+BMC:DedicatedPersonalAssistance
+rdf:type owl:Class ;
+  rdfs:label "Dedicated Personal Assistance" ;
+  rdfs:subClassOf lo:HumanInteraction ;
+.
+BMC:PersonalAssistance
+rdf:type owl:Class ;
+  rdfs:label "Personal Assistance" ;
+  rdfs:subClassOf lo:HumanInteraction ;
+.
+#--------------------------CUSTOMER RELATIONSHIP ---- NON-HUMAN INTERACTION
+BMC:NonHumanInteraction
+rdf:type owl:Class ;
+  rdfs:label "Non-Human Interactions" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:AutomatedService
+rdf:type owl:Class ;
+  rdfs:label "Automated Service" ;
+  rdfs:subClassOf lo:NonHumanInteraction ;
+.
+BMC:CoCreationWithBot
+rdf:type owl:Class ;
+  rdfs:label "Co Creation With Bot" ;
+  rdfs:subClassOf lo:NonHumanInteraction ;
+.
+BMC:SelfService
+rdf:type owl:Class ;
+  rdfs:label "Self-Service" ;
+  rdfs:subClassOf lo:NonHumanInteraction ;
+.
+
+#-------------------------- CHANNELS Own
+BMC:OwnChannel
+rdf:type owl:Class ;
+  rdfs:label "Own Channels" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:SalesForce
+rdf:type owl:Class ;
+  rdfs:label "Sales Force" ;
+  rdfs:subClassOf lo:OwnChannel ;
+.
+BMC:WebSale
+rdf:type owl:Class ;
+  rdfs:label "Web Sale" ;
+  rdfs:subClassOf lo:OwnChannel ;
+.
+BMC:OwnStore
+rdf:type owl:Class ;
+  rdfs:label "Own Store" ;
+  rdfs:subClassOf lo:OwnChannel ;
+.
+#-------------------------- CHANNELS Partner
+BMC:PartnerChannel
+rdf:type owl:Class ;
+  rdfs:label "Partner Channels" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:PartnerStore
+rdf:type owl:Class ;
+  rdfs:label "Partner Store" ;
+  rdfs:subClassOf lo:PartnerChannel ;
+.
+BMC:Wholesaler
+rdf:type owl:Class ;
+  rdfs:label "Wholesaler" ;
+  rdfs:subClassOf lo:PartnerChannel ;
+.
+
+#-------------------------- CHANNELS DIRECT
+#BMC:DirectChannel
+#rdf:type owl:Class ;
+#  rdfs:label "Direct Channels" ;
+#  rdfs:subClassOf lo:ModelingElement ;
+#.
+#BMC:SalesForce
+#rdf:type owl:Class ;
+#  rdfs:label "Sales Force" ;
+#  rdfs:subClassOf lo:DirectChannel ;
+#.
+#BMC:WebSale
+#rdf:type owl:Class ;
+#  rdfs:label "Web Sale" ;
+#  rdfs:subClassOf lo:DirectChannel ;
+#.
+##-------------------------- CHANNELS INDDIRECT
+#BMC:IndirectChannel
+#rdf:type owl:Class ;
+#  rdfs:label "Indirect Channels" ;
+#  rdfs:subClassOf lo:ModelingElement ;
+#.
+#BMC:OwnStore
+#rdf:type owl:Class ;
+#  rdfs:label "Own Store" ;
+#  rdfs:subClassOf lo:IndirectChannel ;
+#.
+#BMC:PartnerStore
+#rdf:type owl:Class ;
+#  rdfs:label "Partner Store" ;
+#  rdfs:subClassOf lo:IndirectChannel ;
+#.
+#BMC:Wholesaler
+#rdf:type owl:Class ;
+#  rdfs:label "Wholesaler" ;
+#  rdfs:subClassOf lo:IndirectChannel ;
+#.
+
+#------------ CUSTOMER SEGMENTS
+BMC:MassMarket
+rdf:type owl:Class ;
+  rdfs:label "Mass Market" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:MicroMarket #diversified & multisides AGGREGATED
+rdf:type owl:Class ;
+  rdfs:label "Micro Market" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:NicheMarket
+rdf:type owl:Class ;
+  rdfs:label "Niche Market" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:SegmentedMarket
+rdf:type owl:Class ;
+  rdfs:label "Segmented Market" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+
+#------------COST STRUCTURE : ATTRIBUTES: FINANCIAL ASPECTS (FIXED & VARIABLE), MODEL(COST-DRIVE, VALUE-DRIVEN ), FORM SCALING (ECONOMY OF SCALE, ECONOMY OF SCOPE)
+BMC:FixedCost
+rdf:type owl:Class ;
+  rdfs:label "Fixed Cost" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:VariableCost
+rdf:type owl:Class ;
+  rdfs:label "Variable Cost" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+
+
+#------------ REVENUE STREAMS - Direct Exchange Revenues
+BMC:AssetSale
+rdf:type owl:Class ;
+  rdfs:label "AssetSale" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+#------------ REVENUE STREAMS - Fee-based Revenues
+BMC:FeeBasedRevenue
+rdf:type owl:Class ;
+  rdfs:label "Fee-based Revenues" ;
+  rdfs:subClassOf lo:ModelingElement ;
+.
+BMC:Advertising
+rdf:type owl:Class ;
+  rdfs:label "Advertising" ;
+  rdfs:subClassOf lo:FeeBasedRevenue ;
+.
+BMC:BrokerageFee
+rdf:type owl:Class ;
+  rdfs:label "BrokerageFee" ;
+  rdfs:subClassOf lo:FeeBasedRevenue ;
+.
+BMC:LendingRentingLeasing
+rdf:type owl:Class ;
+  rdfs:label "Lending, Renting, Leasing" ;
+  rdfs:subClassOf lo:FeeBasedRevenue ;
+.
+BMC:Licensing
+rdf:type owl:Class ;
+  rdfs:label "Licensing" ;
+  rdfs:subClassOf lo:FeeBasedRevenue ;
+.
+BMC:SubscriptionFee
+rdf:type owl:Class ;
+  rdfs:label "Subscription Fee" ;
+  rdfs:subClassOf lo:FeeBasedRevenue ;
+.
+BMC:UsageFee
+rdf:type owl:Class ;
+  rdfs:label "Usage Fee" ;
+  rdfs:subClassOf lo:FeeBasedRevenue ;
+.
+
+#--------------------------Set up Information
+#Default background is the BMC model, it is not needed to have a subclass of the SapScene Background
+
+BMC:Background
+  rdf:type owl:Class ;
+  rdfs:label "Background" ;
+  rdfs:subClassOf lo:ModelingElement ;
+  .
+#--------Set Up Information - Case Description
+BMC:CanvasDescription
+  rdf:type owl:Class ;
+  rdfs:label "Canvas description" ;
+  rdfs:subClassOf lo:ModelingElement ;
+  .
+BMC:DesignedFor
+  rdf:type owl:Class ;
+  rdfs:label "Designed for" ;
+  rdfs:subClassOf lo:CanvasDescription ;
+  .
+BMC:DesignedBy
+  rdf:type owl:Class ;
+  rdfs:label "Designed by" ;
+  rdfs:subClassOf lo:CanvasDescription ;
+  .
+BMC:DateOfCreation
+  rdf:type owl:Class ;
+  rdfs:label "Date of creation" ;
+  rdfs:subClassOf lo:CanvasDescription ;
+  .
+

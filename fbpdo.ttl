@@ -1,0 +1,1067 @@
+# baseURI: http://ikm-group.ch/archimeo/fbpdo
+# prefix: fbpdo
+
+@prefix fbpdo: <http://ikm-group.ch/archimeo/fbpdo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://ikm-group.ch/archimeo/fbpdo>
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+fbpdo:Accelerate
+  rdf:type owl:Class ;
+  rdfs:label "Accelerate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Access
+  rdf:type owl:Class ;
+  rdfs:label "Access" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Accounting
+  rdf:type owl:Class ;
+  rdfs:label "Accounting" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Action
+  rdf:type owl:Class ;
+  rdfs:label "Action" ;
+  rdfs:subClassOf fbpdo:FunctionalBusinessProcessDescription ;
+.
+fbpdo:Administrate
+  rdf:type owl:Class ;
+  rdfs:label "Administrate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Ads
+  rdf:type owl:Class ;
+  rdfs:label "Advertisment" ;
+  rdfs:subClassOf fbpdo:Online ;
+.
+fbpdo:Analyse
+  rdf:type owl:Class ;
+  rdfs:label "Analyse" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Announce
+  rdf:type owl:Class ;
+  rdfs:label "Announce" ;
+  rdfs:subClassOf fbpdo:Publish ;
+.
+fbpdo:Application
+  rdf:type owl:Class ;
+  rdfs:label "Application" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Article
+  rdf:type owl:Class ;
+  rdfs:label "Article" ;
+  rdfs:subClassOf fbpdo:ContentMessage ;
+.
+fbpdo:Assess
+  rdf:type owl:Class ;
+  rdfs:label "Assess" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Asset
+  rdf:type owl:Class ;
+  rdfs:label "Asset" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Assets
+  rdf:type owl:Class ;
+  rdfs:label "Assets" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Audience
+  rdf:type owl:Class ;
+  rdfs:label "Audience" ;
+  rdfs:subClassOf fbpdo:Object ;
+.
+fbpdo:Audio
+  rdf:type owl:Class ;
+  rdfs:label "Audio" ;
+  rdfs:subClassOf fbpdo:Podcast ;
+.
+fbpdo:Automate
+  rdf:type owl:Class ;
+  rdfs:label "Automate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Banner
+  rdf:type owl:Class ;
+  rdfs:label "Banner" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Benchmark
+  rdf:type owl:Class ;
+  rdfs:label "Benchmark" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:BlockChain
+  rdf:type owl:Class ;
+  rdfs:label "BlockChain" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Blog
+  rdf:type owl:Class ;
+  rdfs:label "Blog" ;
+  rdfs:subClassOf fbpdo:Online ;
+.
+fbpdo:Bookings
+  rdf:type owl:Class ;
+  rdfs:label "Bookings" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Brochure
+  rdf:type owl:Class ;
+  rdfs:label "Brochure" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Budget
+  rdf:type owl:Class ;
+  rdfs:label "Budget" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Build
+  rdf:type owl:Class ;
+  rdfs:label "Build" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Buildings
+  rdf:type owl:Class ;
+  rdfs:label "Buildings" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:BusinessDecisions
+  rdf:type owl:Class ;
+  rdfs:label "Business Decisions" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:BusinessProcess
+  rdf:type owl:Class ;
+  rdfs:label "Business Process" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Business_card
+  rdf:type owl:Class ;
+  rdfs:label "Business card" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Calendar
+  rdf:type owl:Class ;
+  rdfs:label "Calendar" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Calls
+  rdf:type owl:Class ;
+  rdfs:label "Calls" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Capture
+  rdf:type owl:Class ;
+  rdfs:label "Capture" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Cases
+  rdf:type owl:Class ;
+  rdfs:label "Cases" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Choose
+  rdf:type owl:Class ;
+  rdfs:label "Choose" ;
+  rdfs:subClassOf fbpdo:Select ;
+.
+fbpdo:CloudStorage
+  rdf:type owl:Class ;
+  rdfs:label "CloudStorage" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Collaborate
+  rdf:type owl:Class ;
+  rdfs:label "Collaborate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Collaboration
+  rdf:type owl:Class ;
+  rdfs:label "Collaboration" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Collect
+  rdf:type owl:Class ;
+  rdfs:label "Collect" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Communication
+  rdf:type owl:Class ;
+  rdfs:label "Communication" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Communication_channel
+  rdf:type owl:Class ;
+  rdfs:label "Communication channel" ;
+  rdfs:subClassOf fbpdo:Object ;
+.
+fbpdo:Communications
+  rdf:type owl:Class ;
+  rdfs:label "Communications" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Compliance
+  rdf:type owl:Class ;
+  rdfs:label "Compliance" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Consolidate
+  rdf:type owl:Class ;
+  rdfs:label "Consolidate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Content
+  rdf:type owl:Class ;
+  rdfs:label "Content" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:ContentMessage
+  rdf:type owl:Class ;
+  rdfs:label "Content/Message" ;
+  rdfs:subClassOf fbpdo:Object ;
+.
+fbpdo:Create
+  rdf:type owl:Class ;
+  rdfs:label "Create" ;
+  rdfs:subClassOf fbpdo:Develop ;
+.
+fbpdo:CustomDuties
+  rdf:type owl:Class ;
+  rdfs:label "CustomDuties" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Customer
+  rdf:type owl:Class ;
+  rdfs:label "Customer" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:CustomerInformation
+  rdf:type owl:Class ;
+  rdfs:label "CustomerInformation" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:CustomerRelationships
+  rdf:type owl:Class ;
+  rdfs:label "CustomerRelationships" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:CustomerService
+  rdf:type owl:Class ;
+  rdfs:label "Customer Service" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Data
+  rdf:type owl:Class ;
+  rdfs:label "Data" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:DataAccess
+  rdf:type owl:Class ;
+  rdfs:label "DataAccess" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:DataCenter
+  rdf:type owl:Class ;
+  rdfs:label "DataCenter" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:DataCenterNetwork
+  rdf:type owl:Class ;
+  rdfs:label "DataCenter Network" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Debt
+  rdf:type owl:Class ;
+  rdfs:label "Debt" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Define
+  rdf:type owl:Class ;
+  rdfs:label "Define" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Deliver
+  rdf:type owl:Class ;
+  rdfs:label "Deliver" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Design
+  rdf:type owl:Class ;
+  rdfs:label "Design" ;
+  rdfs:subClassOf fbpdo:Develop ;
+.
+fbpdo:Determine
+  rdf:type owl:Class ;
+  rdfs:label "Determine" ;
+  rdfs:subClassOf fbpdo:Define ;
+.
+fbpdo:Develop
+  rdf:type owl:Class ;
+  rdfs:label "Develop" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Development
+  rdf:type owl:Class ;
+  rdfs:label "Development" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Discover
+  rdf:type owl:Class ;
+  rdfs:label "Discover" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Document
+  rdf:type owl:Class ;
+  rdfs:label "Document" ;
+  rdfs:subClassOf fbpdo:ContentMessage ;
+.
+fbpdo:E-forms
+  rdf:type owl:Class ;
+  rdfs:label "E-forms" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:E-learning
+  rdf:type owl:Class ;
+  rdfs:label "e-learning" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:E-mail
+  rdf:type owl:Class ;
+  rdfs:label "E-mail" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Edit
+  rdf:type owl:Class ;
+  rdfs:label "Edit" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Email
+  rdf:type owl:Class ;
+  rdfs:label "Email" ;
+  rdfs:subClassOf fbpdo:Online ;
+.
+fbpdo:EnterprisePerformance
+  rdf:type owl:Class ;
+  rdfs:label "EnterprisePerformance" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Error
+  rdf:type owl:Class ;
+  rdfs:label "Error" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Event
+  rdf:type owl:Class ;
+  rdfs:label "Event" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Examination
+  rdf:type owl:Class ;
+  rdfs:label "Examination" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Expenses
+  rdf:type owl:Class ;
+  rdfs:label "Expenses" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Experience
+  rdf:type owl:Class ;
+  rdfs:label "Experience" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Facebook
+  rdf:type owl:Class ;
+  rdfs:label "Facebook" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.
+fbpdo:Feed
+  rdf:type owl:Class ;
+  rdfs:label "Feed" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:File
+  rdf:type owl:Class ;
+  rdfs:label "File" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Financials
+  rdf:type owl:Class ;
+  rdfs:label "Financials" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Flyer
+  rdf:type owl:Class ;
+  rdfs:label "Flyer" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Format
+  rdf:type owl:Class ;
+  rdfs:label "DataCenter Network" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Fraud
+  rdf:type owl:Class ;
+  rdfs:label "Fraud" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:FreightForwarding
+  rdf:type owl:Class ;
+  rdfs:label "Freight Forwarding" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:FunctionalBusinessProcessDescription
+  rdf:type owl:Class ;
+  rdfs:label "Functional Business Process Description" ;
+.
+fbpdo:Funding
+  rdf:type owl:Class ;
+  rdfs:label "Funding" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:General
+  rdf:type owl:Class ;
+  rdfs:label "General" ;
+  rdfs:subClassOf fbpdo:Object ;
+.
+fbpdo:Generate
+  rdf:type owl:Class ;
+  rdfs:label "Generate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Googe_ads
+  rdf:type owl:Class ;
+  rdfs:label "Google Adwords" ;
+  rdfs:subClassOf fbpdo:Ads ;
+.
+fbpdo:Google
+  rdf:type owl:Class ;
+  rdfs:label "Google+" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.
+fbpdo:Grants
+  rdf:type owl:Class ;
+  rdfs:label "Grants" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Group
+  rdf:type owl:Class ;
+  rdfs:label "Group" ;
+  rdfs:subClassOf fbpdo:Audience ;
+.
+fbpdo:HR
+  rdf:type owl:Class ;
+  rdfs:label "HR" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Hearings
+  rdf:type owl:Class ;
+  rdfs:label "Hearings" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:HumanCapital
+  rdf:type owl:Class ;
+  rdfs:label "Human Capital" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Image
+  rdf:type owl:Class ;
+  rdfs:label "Image" ;
+  rdfs:subClassOf fbpdo:Article ;
+.
+fbpdo:Indentify
+  rdf:type owl:Class ;
+  rdfs:label "Indentify" ;
+  rdfs:subClassOf fbpdo:Define ;
+.
+fbpdo:Information
+  rdf:type owl:Class ;
+  rdfs:label "Information" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Instagram
+  rdf:type owl:Class ;
+  rdfs:label "Instagram" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.
+fbpdo:Integrate
+  rdf:type owl:Class ;
+  rdfs:label "Integrate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Intelligence
+  rdf:type owl:Class ;
+  rdfs:label "Intelligence" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:InternalAudits
+  rdf:type owl:Class ;
+  rdfs:label "InternalAudits" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Inventory
+  rdf:type owl:Class ;
+  rdfs:label "Inventory" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Investigate
+  rdf:type owl:Class ;
+  rdfs:label "Investigate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Invoice
+  rdf:type owl:Class ;
+  rdfs:label "Invoice" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:JobApplication
+  rdf:type owl:Class ;
+  rdfs:label "JobApplication" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Knowledge
+  rdf:type owl:Class ;
+  rdfs:label "Knowledge" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:KnowledgeSharing
+  rdf:type owl:Class ;
+  rdfs:label "KnowledgeSharing" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Landing_page
+  rdf:type owl:Class ;
+  rdfs:label "Landing page/Website" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Letter
+  rdf:type owl:Class ;
+  rdfs:label "Letter" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Licences
+  rdf:type owl:Class ;
+  rdfs:label "Licences" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:LinkedIn
+  rdf:type owl:Class ;
+  rdfs:label "LinkedIn" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.
+fbpdo:Location
+  rdf:type owl:Class ;
+  rdfs:label "Location" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Log
+  rdf:type owl:Class ;
+  rdfs:label "Log" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Magazine
+  rdf:type owl:Class ;
+  rdfs:label "Magazine" ;
+  rdfs:subClassOf fbpdo:Offline ;
+.
+fbpdo:Make
+  rdf:type owl:Class ;
+  rdfs:label "Make" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Manage
+  rdf:type owl:Class ;
+  rdfs:label "Manage" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Maps
+  rdf:type owl:Class ;
+  rdfs:label "Maps" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Marketing
+  rdf:type owl:Class ;
+  rdfs:label "Marketing" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Measure
+  rdf:type owl:Class ;
+  rdfs:label "Measure" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Meetings
+  rdf:type owl:Class ;
+  rdfs:label "Meetings" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Migrate
+  rdf:type owl:Class ;
+  rdfs:label "Migrate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:MobileAdoption
+  rdf:type owl:Class ;
+  rdfs:label "MobileAdoption" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Monitor
+  rdf:type owl:Class ;
+  rdfs:label "Monitor" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Networking
+  rdf:type owl:Class ;
+  rdfs:label "Networking" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Newsletter
+  rdf:type owl:Class ;
+  rdfs:label "Newsletter" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Newspaper
+  rdf:type owl:Class ;
+  rdfs:label "Newspaper" ;
+  rdfs:subClassOf fbpdo:Offline ;
+.
+fbpdo:Object
+  rdf:type owl:Class ;
+  rdfs:label "Object" ;
+  rdfs:subClassOf fbpdo:FunctionalBusinessProcessDescription ;
+.
+fbpdo:Offline
+  rdf:type owl:Class ;
+  rdfs:label "Offline communication channel" ;
+  rdfs:subClassOf fbpdo:Communication_channel ;
+.
+fbpdo:Online
+  rdf:type owl:Class ;
+  rdfs:label "Online communication channel" ;
+  rdfs:subClassOf fbpdo:Communication_channel ;
+.
+fbpdo:Optimise
+  rdf:type owl:Class ;
+  rdfs:label "Optimise" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Organise
+  rdf:type owl:Class ;
+  rdfs:label "Organise" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Parse
+  rdf:type owl:Class ;
+  rdfs:label "Parse" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Patients
+  rdf:type owl:Class ;
+  rdfs:label "Patients" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Payments
+  rdf:type owl:Class ;
+  rdfs:label "Payments" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Perform
+  rdf:type owl:Class ;
+  rdfs:label "Perform" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Performance
+  rdf:type owl:Class ;
+  rdfs:label "Performance" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:PlanningAndBudgeting
+  rdf:type owl:Class ;
+  rdfs:label "Planning&Budgeting" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Podcast
+  rdf:type owl:Class ;
+  rdfs:label "Podcast" ;
+  rdfs:subClassOf fbpdo:ContentMessage ;
+.
+fbpdo:Portfolio
+  rdf:type owl:Class ;
+  rdfs:label "Portfolio" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Post
+  rdf:type owl:Class ;
+  rdfs:label "Post" ;
+  rdfs:subClassOf fbpdo:Publish ;
+.
+fbpdo:Poster
+  rdf:type owl:Class ;
+  rdfs:label "Poster" ;
+  rdfs:subClassOf fbpdo:Document ;
+.
+fbpdo:Price
+  rdf:type owl:Class ;
+  rdfs:label "Price" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Print
+  rdf:type owl:Class ;
+  rdfs:label "Print" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Process
+  rdf:type owl:Class ;
+  rdfs:label "Process" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Procurement
+  rdf:type owl:Class ;
+  rdfs:label "Procurement" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Profitability
+  rdf:type owl:Class ;
+  rdfs:label "Profitability" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Projects
+  rdf:type owl:Class ;
+  rdfs:label "Projects" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Protect
+  rdf:type owl:Class ;
+  rdfs:label "Protect" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Provide
+  rdf:type owl:Class ;
+  rdfs:label "Provide" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Publish
+  rdf:type owl:Class ;
+  rdfs:label "Publish" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Purchases
+  rdf:type owl:Class ;
+  rdfs:label "Purchases" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Quote
+  rdf:type owl:Class ;
+  rdfs:label "Quote" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Receive
+  rdf:type owl:Class ;
+  rdfs:label "Receive" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Record
+  rdf:type owl:Class ;
+  rdfs:label "Record" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Records
+  rdf:type owl:Class ;
+  rdfs:label "Records" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Recruitment
+  rdf:type owl:Class ;
+  rdfs:label "Recruitment" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Register
+  rdf:type owl:Class ;
+  rdfs:label "Register" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Remotely
+  rdf:type owl:Class ;
+  rdfs:label "Remotely" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Report
+  rdf:type owl:Class ;
+  rdfs:label "Report" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Reporting
+  rdf:type owl:Class ;
+  rdfs:label "Reporting" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Review
+  rdf:type owl:Class ;
+  rdfs:label "Review" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Rewards
+  rdf:type owl:Class ;
+  rdfs:label "Rewards" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Risk
+  rdf:type owl:Class ;
+  rdfs:label "Risk" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:RoomReservation
+  rdf:type owl:Class ;
+  rdfs:label "RoomReservation" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Route
+  rdf:type owl:Class ;
+  rdfs:label "Route" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Schedule
+  rdf:type owl:Class ;
+  rdfs:label "Schedule" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Secure
+  rdf:type owl:Class ;
+  rdfs:label "Secure" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Securely
+  rdf:type owl:Class ;
+  rdfs:label "Securely" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Security
+  rdf:type owl:Class ;
+  rdfs:label "Security" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Select
+  rdf:type owl:Class ;
+  rdfs:label "Select" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Send
+  rdf:type owl:Class ;
+  rdfs:label "Send" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Service
+  rdf:type owl:Class ;
+  rdfs:label "Service" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Set
+  rdf:type owl:Class ;
+  rdfs:label "Set" ;
+  rdfs:subClassOf fbpdo:Define ;
+.
+fbpdo:Shared-services
+  rdf:type owl:Class ;
+  rdfs:label "Shared-services" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Social-Media
+  rdf:type owl:Class ;
+  rdfs:label "Social-Media" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Social_media
+  rdf:type owl:Class ;
+  rdfs:label "Social media" ;
+  rdfs:subClassOf fbpdo:Online ;
+.
+fbpdo:Software
+  rdf:type owl:Class ;
+  rdfs:label "Software" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Solutions
+  rdf:type owl:Class ;
+  rdfs:label "Solutions" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Solve
+  rdf:type owl:Class ;
+  rdfs:label "Solve" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:SourcingStrategy
+  rdf:type owl:Class ;
+  rdfs:label "SourcingStrategy" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Spreadsheet
+  rdf:type owl:Class ;
+  rdfs:label "Spreadsheet" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Stakeholders
+  rdf:type owl:Class ;
+  rdfs:label "Stakeholders" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Store
+  rdf:type owl:Class ;
+  rdfs:label "Store" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Streamline
+  rdf:type owl:Class ;
+  rdfs:label "Streamline" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Submissions
+  rdf:type owl:Class ;
+  rdfs:label "Submissions" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Suppliers
+  rdf:type owl:Class ;
+  rdfs:label "Suppliers" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Support
+  rdf:type owl:Class ;
+  rdfs:label "Support" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Survey
+  rdf:type owl:Class ;
+  rdfs:label "Survey" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Tasks
+  rdf:type owl:Class ;
+  rdfs:label "Tasks" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Test
+  rdf:type owl:Class ;
+  rdfs:label "Test" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Text
+  rdf:type owl:Class ;
+  rdfs:label "Text" ;
+  rdfs:subClassOf fbpdo:Article ;
+.
+fbpdo:Time
+  rdf:type owl:Class ;
+  rdfs:label "Time" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Tool
+  rdf:type owl:Class ;
+  rdfs:label "Tool" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Track
+  rdf:type owl:Class ;
+  rdfs:label "Track" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Training
+  rdf:type owl:Class ;
+  rdfs:label "Training" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Transfer
+  rdf:type owl:Class ;
+  rdfs:label "Transfer" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Translate
+  rdf:type owl:Class ;
+  rdfs:label "Translate" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Transportation
+  rdf:type owl:Class ;
+  rdfs:label "Transportation" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:TransportationFleet
+  rdf:type owl:Class ;
+  rdfs:label "TransportationFleet" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Twitter
+  rdf:type owl:Class ;
+  rdfs:label "Twitter" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.
+fbpdo:Update
+  rdf:type owl:Class ;
+  rdfs:label "Update" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Upload
+  rdf:type owl:Class ;
+  rdfs:label "Upload" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Users
+  rdf:type owl:Class ;
+  rdfs:label "Users" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Video
+  rdf:type owl:Class ;
+  rdfs:label "Video" ;
+  rdfs:subClassOf fbpdo:Podcast ;
+.
+fbpdo:Videos
+  rdf:type owl:Class ;
+  rdfs:label "Videos" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Virtualize
+  rdf:type owl:Class ;
+  rdfs:label "Virtualize" ;
+  rdfs:subClassOf fbpdo:Action ;
+.
+fbpdo:Website
+  rdf:type owl:Class ;
+  rdfs:label "Website" ;
+  rdfs:subClassOf fbpdo:Online ;
+.
+fbpdo:Website-Traffic
+  rdf:type owl:Class ;
+  rdfs:label "Website-Traffic" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Workflow
+  rdf:type owl:Class ;
+  rdfs:label "Workflow" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:Workforce
+  rdf:type owl:Class ;
+  rdfs:label "Workforce" ;
+  rdfs:subClassOf fbpdo:General ;
+.
+fbpdo:XING
+  rdf:type owl:Class ;
+  rdfs:label "XING" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.
+fbpdo:Yotube
+  rdf:type owl:Class ;
+  rdfs:label "Youtube" ;
+  rdfs:subClassOf fbpdo:Social_media ;
+.

@@ -1,0 +1,247 @@
+# baseURI: http://ikm-group.ch/archiMEO/questionnaire
+# imports: http://ikm-group.ch/archiMEO/bdata
+# imports: http://ikm-group.ch/archimeo/bpaas
+# prefix: questionnaire
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix questionnaire: <http://ikm-group.ch/archiMEO/questionnaire#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://ikm-group.ch/archiMEO/questionnaire>
+  rdf:type owl:Ontology ;
+  owl:imports <http://ikm-group.ch/archiMEO/bdata> ;
+  owl:imports <http://ikm-group.ch/archimeo/bpaas> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+questionnaire:Answer
+  rdf:type owl:Class ;
+  rdfs:label "Answer" ;
+  rdfs:subClassOf questionnaire:Questionnaire ;
+.
+questionnaire:AnswerHasQuestionDependency
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:Answer ;
+  rdfs:label "AnswerHasQuestionDependency" ;
+  rdfs:range questionnaire:Question ;
+.
+questionnaire:AnswerType
+  rdf:type owl:Class ;
+  rdfs:label "AnswerType" ;
+  rdfs:subClassOf questionnaire:Questionnaire ;
+.
+questionnaire:AttributeHasQuestionRelation
+  rdf:type rdf:Property ;
+  rdfs:domain <http://ikm-group.ch/archiMEO/eo#EnterpriseObject> ;
+  rdfs:label "AttributeHasQuestionRelation" ;
+  rdfs:range questionnaire:Question ;
+.
+questionnaire:Availability
+  rdf:type owl:Class ;
+  rdfs:label "Availability" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:CloudServiceDomain
+  rdf:type owl:Class ;
+  rdfs:subClassOf questionnaire:Model ;
+.
+questionnaire:CloudServiceElement
+  rdf:type owl:Class ;
+  rdfs:subClassOf questionnaire:Model ;
+.
+questionnaire:Equality
+  rdf:type owl:Class ;
+  rdfs:label "Equality" ;
+  rdfs:subClassOf questionnaire:LogicalOperators ;
+.
+questionnaire:Equals
+  rdf:type questionnaire:Equality ;
+  rdfs:label "Equals (=)" ;
+.
+questionnaire:Functional
+  rdf:type owl:Class ;
+  rdfs:label "Functional" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:GeneralAnswers
+  rdf:type owl:Class ;
+  rdfs:label "General questions" ;
+  rdfs:subClassOf questionnaire:Answer ;
+.
+questionnaire:GreaterEqualsThan
+  rdf:type questionnaire:Inequality ;
+  rdfs:label "greater equals than (>=)" ;
+.
+questionnaire:GreaterThan
+  rdf:type questionnaire:Inequality ;
+  rdfs:label "greater than (>)" ;
+.
+questionnaire:Inequality
+  rdf:type owl:Class ;
+  rdfs:label "Inequality" ;
+  rdfs:subClassOf questionnaire:LogicalOperators ;
+.
+questionnaire:Interoperability
+  rdf:type owl:Class ;
+  rdfs:label "Interoperability" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:LessEqualsThan
+  rdf:type questionnaire:Inequality ;
+  rdfs:label "less equals than (<=)" ;
+.
+questionnaire:LessThan
+  rdf:type questionnaire:Inequality ;
+  rdfs:label "less than (<)" ;
+.
+questionnaire:LogicalOperators
+  rdf:type owl:Class ;
+  rdfs:label "LogicalOperators" ;
+  rdfs:subClassOf questionnaire:Questionnaire ;
+.
+questionnaire:Model
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+questionnaire:MultiSelection
+  rdf:type owl:Class ;
+  rdfs:label "MultiSelection" ;
+  rdfs:subClassOf questionnaire:AnswerType ;
+.
+questionnaire:No
+  rdf:type questionnaire:GeneralAnswers ;
+  rdfs:label "No" ;
+.
+questionnaire:NotEqual
+  rdf:type questionnaire:Inequality ;
+  rdfs:label "not equal (!=)" ;
+.
+questionnaire:Not_Specified
+  rdf:type questionnaire:GeneralAnswers ;
+  rdfs:label "Not important" ;
+.
+questionnaire:Payment
+  rdf:type owl:Class ;
+  rdfs:label "Payment" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:Performance
+  rdf:type owl:Class ;
+  rdfs:label "Performance" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:Question
+  rdf:type owl:Class ;
+  rdfs:label "Question" ;
+  rdfs:subClassOf questionnaire:Questionnaire ;
+.
+questionnaire:Questionnaire
+  rdf:type owl:Class ;
+  rdfs:label "Questionnaire" ;
+  rdfs:subClassOf questionnaire:Model ;
+.
+questionnaire:Reliability
+  rdf:type owl:Class ;
+  rdfs:label "Reliability" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:SearchSelection
+  rdf:type owl:Class ;
+  rdfs:label "DrilldownSelection" ;
+  rdfs:subClassOf questionnaire:AnswerType ;
+.
+questionnaire:Security
+  rdf:type owl:Class ;
+  rdfs:label "Security" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:ServiceSupport
+  rdf:type owl:Class ;
+  rdfs:label "Service Support" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:SingleSelection
+  rdf:type owl:Class ;
+  rdfs:label "SingleSelection" ;
+  rdfs:subClassOf questionnaire:AnswerType ;
+.
+questionnaire:TargetMarket
+  rdf:type owl:Class ;
+  rdfs:label "Target Market" ;
+  rdfs:subClassOf questionnaire:Question ;
+.
+questionnaire:ValueInsert
+  rdf:type owl:Class ;
+  rdfs:label "Value Insert" ;
+  rdfs:subClassOf questionnaire:AnswerType ;
+.
+questionnaire:Yes
+  rdf:type questionnaire:GeneralAnswers ;
+  rdfs:label "Yes" ;
+.
+questionnaire:cloudServiceElementHasCloudServiceDomain
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain questionnaire:CloudServiceElement ;
+  rdfs:range questionnaire:CloudServiceDomain ;
+.
+questionnaire:hasOrderNumberForVisualization
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has order number for visualization" ;
+  rdfs:range xsd:integer ;
+.
+questionnaire:questionHasAnnotationRelation
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:Model ;
+  rdfs:label "questionHasAnnotationRelation" ;
+  rdfs:range rdf:Property ;
+.
+questionnaire:questionHasAnswers
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:Question ;
+  rdfs:label "question has answers" ;
+  rdfs:range owl:Thing ;
+.
+questionnaire:questionHasDomainAnswer
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:Question ;
+  rdfs:label "questionHasDomainAnswer" ;
+  rdfs:range owl:Class ;
+.
+questionnaire:questionIsAnswerdByAnswer
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:Question ;
+  rdfs:label "questionIsAnswerdByAnswer" ;
+  rdfs:range questionnaire:Answer ;
+.
+questionnaire:questionIsAnswerdByValue
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:Question ;
+  rdfs:label "questionIsAnswerdByValue" ;
+  rdfs:range xsd:string ;
+.
+questionnaire:searchSelectionHasSearchNamespace
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:SearchSelection ;
+  rdfs:label "questionHasSearchNamespace" ;
+  rdfs:range owl:Thing ;
+.
+questionnaire:searchSelectionOnClassesInsteadOfInstances
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:SearchSelection ;
+  rdfs:label "search selection on classes" ;
+  rdfs:range xsd:boolean ;
+.
+questionnaire:valueInsertAnswerHasComparisonPossibilities
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:ValueInsert ;
+  rdfs:label "valueInsertAnswerHasComparisonPossibilities" ;
+  rdfs:range questionnaire:LogicalOperators ;
+.
+questionnaire:valueInsertAnswerTypeHasDatatype
+  rdf:type rdf:Property ;
+  rdfs:domain questionnaire:ValueInsert ;
+  rdfs:label "valueInsertAnswerTypeHasDatatype" ;
+  rdfs:range rdfs:Datatype ;
+.

@@ -1,0 +1,1291 @@
+# baseURI: http://fhnw.ch/securityProtocolEnforcedForCovid19Ontology
+# imports: http://fhnw.ch/OrganizationalModel
+# imports: http://fhnw.ch/modelingEnvironment/dkmm
+# imports: http://spinrdf.org/spin
+# prefix: speco
+
+@prefix : <http://fhnw.ch/securityProtocolEnforcedForCovid19Ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix speco: <http://fhnw.ch/securityProtocolEnforcedForCovid19Ontology#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://fhnw.ch/securityProtocolEnforcedForCovid19Ontology>
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  owl:imports <http://fhnw.ch/OrganizationalModel> ;
+  owl:imports <http://fhnw.ch/modelingEnvironment/dkmm> ;
+  owl:imports <http://spinrdf.org/spin> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+speco:Alex
+  rdf:type speco:HealthEmployee ;
+  speco:healthEmployee_AllowedToTreat_Patient speco:Felix ;
+  speco:healthEmployee_Follows_Quarantine speco:Quarantine_Of_Alex ;
+  speco:healthEmployee_HadCloseContactWith_Patient speco:Bob ;
+  speco:healthEmployee_WorksAt_HealthOrganization speco:SPITEX ;
+  speco:role_Has_ReasonForMeasure speco:Close_Contact_With_Positively_Tested_Person ;
+  speco:symptomatic "false"^^xsd:boolean ;
+  spin:query [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:_this ;
+            sp:predicate speco:healthEmployee_AllowedToTreat_Patient ;
+            sp:subject speco:Alex ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Quarantine_Of_Alex ;
+            sp:predicate speco:healthEmployee_Follows_Quarantine ;
+            sp:subject speco:Alex ;
+          ]
+          [
+            sp:object "false"^^xsd:boolean ;
+            sp:predicate speco:symptomatic ;
+            sp:subject speco:Alex ;
+          ]
+          [
+            sp:object speco:We_Die_Old_Gmbh ;
+            sp:predicate speco:patient_LivesIn_SeniorHome ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type speco:Patient ;
+                sp:arg1 speco:Alex ;
+              ] ;
+            sp:variable [
+                sp:varName "object" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Alex" ;
+.
+speco:Basel_City
+  rdf:type speco:CantonalOffice ;
+  speco:address "Marktpl. 9, 4001 Basel" ;
+  speco:cantonalOffice_ExemptsFrom_Quarantine speco:Quarantine_Of_Alex ;
+  speco:cantonalOffice_Finances_Measure speco:Quarantine_Of_Alex ;
+  speco:cantonalOffice_Orders_Measure speco:Quarantine_Of_Alex ;
+  speco:cantonalOffice_Orders_Measure speco:Test_Of_Bob ;
+  speco:cantonalOffice_Orders_Measure speco:Test_Of_Florian ;
+  speco:description "The cantonal administrative authority of the canton Basel-City." ;
+  spin:query [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object speco:Quarantine_Of_Alex ;
+            sp:predicate speco:cantonalOffice_Finances_Measure ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Quarantine_Of_Alex ;
+            sp:predicate speco:healthEmployee_Follows_Quarantine ;
+            sp:subject speco:Alex ;
+          ]
+          [
+            sp:object speco:Quarantine_Of_Alex ;
+            sp:predicate speco:reasonForMeasure_Justifies_Measure ;
+            sp:subject speco:Close_Contact_With_Positively_Tested_Person ;
+          ]
+          [
+            sp:object speco:Quarantine_Of_Alex ;
+            sp:predicate speco:cantonalOffice_Orders_Measure ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type speco:CantonalOffice ;
+                sp:arg1 speco:Quarantine_Of_Alex ;
+              ] ;
+            sp:variable [
+                sp:varName "s" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Test_Of_Florian ;
+            sp:predicate speco:cantonalOffice_Orders_Measure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Basel City" ;
+.
+speco:Bob
+  rdf:type speco:Patient ;
+  speco:Patient_LivesIn_PrivateHome speco:Home_Of_Bob ;
+  speco:patient_Follows_Isolation speco:Isolation_Of_Bob ;
+  speco:patient_Follows_Test speco:Test_Of_Bob ;
+  speco:patient_Has_PositiveTest speco:Positive_Test_Of_Bob ;
+  speco:patient_Has_Symptom speco:symptom_Bob ;
+  speco:role_Follows_Measure speco:Isolation_Of_Bob ;
+  speco:role_Follows_Measure speco:Test_Of_Bob ;
+  speco:role_hadCloseContactWith_Role speco:Alex ;
+  speco:role_hadCloseContactWith_Role speco:Florian ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:healthEmployee_HadCloseContactWith_Patient ;
+            sp:subject speco:Alex ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Bob" ;
+.
+speco:CantonalOffice
+  rdf:type owl:Class ;
+  rdfs:label "Cantonal office" ;
+  rdfs:subClassOf speco:Office ;
+.
+speco:Close_Contact_With_Positively_Tested_Person
+  rdf:type speco:ReasonForMeasure ;
+  speco:description "This reason justifies Quarantine measures when a Person has been in Close contact with a positively tested person back to 48 hours before said person haf the first symptom." ;
+  speco:reasonForMeasure_Justifies_Measure speco:Quarantine_Of_Alex ;
+  rdfs:label "Close Contact With Positively Tested Person" ;
+.
+speco:FederalOffice
+  rdf:type owl:Class ;
+  rdfs:label "Federal office" ;
+  rdfs:subClassOf speco:Office ;
+.
+speco:Federal_Council
+  rdf:type speco:FederalOffice ;
+  speco:address "Bundeskanzlei, Bundeshaus, 3003 Bern" ;
+  speco:description "Federal Council of Switzerland." ;
+  speco:federalOffice_Dictates_Law speco:Law_Legal_Basis_Ordinances_Federal_Council_Deal_Covid_19_Epidemic ;
+  speco:federalOffice_Dictates_Law speco:Law_on_epidemics ;
+  speco:federalOffice_Dictates_Ordinance speco:Ordinance_Measures_Combat_Coronavirus_International_Passenger_Transport ;
+  speco:federalOffice_Dictates_RegulationOnCovid19 speco:Law_Legal_Basis_Ordinances_Federal_Council_Deal_Covid_19_Epidemic ;
+  speco:federalOffice_Dictates_RegulationOnCovid19 speco:Law_on_epidemics ;
+  speco:federalOffice_Dictates_RegulationOnCovid19 speco:Ordinance_Measures_Combat_Coronavirus_International_Passenger_Transport ;
+  rdfs:label "Federal Council" ;
+.
+speco:Federal_Office_Public_Health
+  rdf:type speco:FederalOffice ;
+  speco:address "Schwarzenburgstrasse 157, 3097 Liebefeld" ;
+  speco:description "Federal Authority for Public health in Switzerland." ;
+  speco:federalOffice_Dictates_InstructionSheet speco:Instruction_Isolation ;
+  speco:federalOffice_Dictates_InstructionSheet speco:Instruction_Quarantine ;
+  speco:federalOffice_Dictates_InstructionSheet speco:Instruction_Quarantine_Arrival_Switzerland ;
+  speco:federalOffice_Dictates_InstructionSheet speco:Instruction_for_Testing_Ambulatory_Sector ;
+  speco:federalOffice_Dictates_ListOfCairi speco:List_Of_Cairi_23_11 ;
+  speco:federalOffice_Dictates_ListOfCairi speco:List_Of_Cairi_29_10 ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:List_Of_Cairi_23_11 ;
+            sp:predicate speco:federalOffice_Dictates_ListOfCairi ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Federal Office Public Health" ;
+.
+speco:Federal_Office_Social_Insurance
+  rdf:type speco:FederalOffice ;
+  speco:address "Effingerstrasse 20 CH-3003 Bern" ;
+  speco:description "Federal Auhtority on Social Security in Switzerland." ;
+  speco:federalOffice_Dictates_InstructionSheet speco:Instruction_Compensation_Due_To_Measures_Against_Coronavirus ;
+  speco:federalOffice_Dictates_RegulationOnCovid19 speco:Instruction_Compensation_Due_To_Measures_Against_Coronavirus ;
+  rdfs:label "Federal Office Social Insurance" ;
+.
+speco:Felix
+  rdf:type speco:Patient ;
+  speco:patient_LivesIn_SeniorHome speco:We_Die_Old_Gmbh ;
+  rdfs:label "Felix" ;
+.
+speco:Florian
+  rdf:type speco:HealthEmployee ;
+  speco:healthEmployee_Follows_Isolation speco:Isolation_Of_Florian ;
+  speco:healthEmployee_Follows_Test speco:Test_Of_Florian ;
+  speco:healthEmployee_HadCloseContactWith_Patient speco:Bob ;
+  speco:healthEmployee_Has_Symptom speco:symptom_Florian ;
+  speco:healthEmployee_WorksAt_HealthOrganization speco:SPITEX ;
+  speco:symptomatic "true"^^xsd:boolean ;
+  rdfs:label "Florian" ;
+.
+speco:HealthEmployee
+  rdf:type owl:Class ;
+  rdfs:label "Health Employee" ;
+  rdfs:subClassOf <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+.
+speco:HealthOrganization
+  rdf:type owl:Class ;
+  rdfs:label "Health Organization" ;
+  rdfs:subClassOf <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+.
+speco:Home_Of_Bob
+  rdf:type speco:PrivateHome ;
+  speco:address "Street of Bob 44, 4056 Basel" ;
+  speco:description "This is the place of treatment for the patient Bob." ;
+  rdfs:label "Home Of Bob" ;
+.
+speco:Home_Of_Lucas
+  rdf:type speco:PrivateHome ;
+  speco:address "Street of Lucas 77, 4057 Basel" ;
+  speco:description "This is the place of treatment for the patient Bob." ;
+  rdfs:label "Home Of Lucas" ;
+.
+speco:InstructionSheet
+  rdf:type owl:Class ;
+  rdfs:label "Instruction sheet" ;
+  rdfs:subClassOf speco:RegulationOnCovid19 ;
+.
+speco:InstructionSheet_Regulates_Quarantine
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:InstructionSheet ;
+  rdfs:label "instruction Sheet Regulates Quarantine" ;
+  rdfs:range speco:Quarantine ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_Measure ;
+.
+speco:Instruction_Compensation_Due_To_Measures_Against_Coronavirus
+  rdf:type speco:InstructionSheet ;
+  speco:InstructionSheet_Regulates_Quarantine speco:Quarantine_Of_Alex ;
+  speco:InstructionSheet_Regulates_Quarantine speco:Quarantine_Of_Stacy ;
+  speco:URL "https://www.bsv.admin.ch/bsv/de/home/sozialversicherungen/eo-msv/grundlagen-und-gesetze/eo-corona.html" ;
+  speco:dateOfLastUpdate "2020-12-03"^^xsd:date ;
+  speco:description "This instruction sheet provides information pertaining the rules about compensation for workers who experienced loss of earnings because of measures against Covid-19 (e.g. because of Quarantine). " ;
+  speco:instructionSheet_Regulates_Isolation speco:Isolation_Of_Bob ;
+  speco:instructionSheet_Regulates_Isolation speco:Isolation_Of_Florian ;
+  rdfs:label "Instruction Compensation Due To Measures Against Coronavirus" ;
+.
+speco:Instruction_Isolation
+  rdf:type speco:InstructionSheet ;
+  speco:URL "https://www.bag.admin.ch/dam/bag/en/dokumente/mt/k-und-i/aktuelle-ausbrueche-pandemien/2019-nCoV/merkblatt-selbstisolation-covid-19.pdf.download.pdf/covid-19_instructions_isolation.pdf" ;
+  speco:dateOfLastUpdate "2020-12-04"^^xsd:date ;
+  speco:description "This instruction sheetprovides up to date information about Isolation." ;
+  speco:instructionSheet_Regulates_Isolation speco:Isolation_Of_Bob ;
+  speco:instructionSheet_Regulates_Isolation speco:Isolation_Of_Florian ;
+  speco:instructionSheet_Specifies_PositiveTest speco:Positive_Test_Of_Bob ;
+  speco:instructionSheet_Specifies_Symptom speco:symptom_Bob ;
+  speco:instructionSheet_Specifies_Symptom speco:symptom_Florian ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:federalOffice_Dictates_InstructionSheet ;
+            sp:subject speco:Federal_Office_Public_Health ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Instruction Isolation" ;
+.
+speco:Instruction_Quarantine
+  rdf:type speco:InstructionSheet ;
+  speco:InstructionSheet_Regulates_Quarantine speco:Quarantine_Of_Alex ;
+  speco:InstructionSheet_Regulates_Quarantine speco:Quarantine_Of_Stacy ;
+  speco:URL "https://www.bag.admin.ch/dam/bag/en/dokumente/mt/k-und-i/aktuelle-ausbrueche-pandemien/2019-nCoV/merkblatt-selbstquarantaene.pdf.download.pdf/covid-19_instructions_quarantine.pdf" ;
+  speco:dateOfLastUpdate "2020-12-04"^^xsd:date ;
+  speco:description "This instruction sheet provides up to date information about Quarantine." ;
+  speco:regulationOnCovid19_Specifies_ReasonForMeasure speco:Close_Contact_With_Positively_Tested_Person ;
+  speco:regulationOnCovid19_Specifies_ReasonForMeasure speco:Travel_To_Cairi ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:federalOffice_Dictates_InstructionSheet ;
+            sp:subject speco:Federal_Office_Public_Health ;
+          ]
+        ) ;
+    ] ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Close_Contact_With_Positively_Tested_Person ;
+            sp:predicate speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Travel_To_Cairi ;
+            sp:predicate speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Instruction Quarantine" ;
+.
+speco:Instruction_Quarantine_Arrival_Switzerland
+  rdf:type speco:InstructionSheet ;
+  speco:InstructionSheet_Regulates_Quarantine speco:Quarantine_Of_Stacy ;
+  speco:URL "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/empfehlungen-fuer-reisende/quarantaene-einreisende.html#517241576" ;
+  speco:dateOfLastUpdate "2020-12-09"^^xsd:date ;
+  speco:description "This instruction sheet provides up to date information about quarantine for people arriving in Switzerland. It contains among other things the list of countries and areas with an increased risk 	of infection (CAIRI)." ;
+  speco:instructionSheet_Regulates_ListOfCairi speco:List_Of_Cairi_23_11 ;
+  speco:instructionSheet_Regulates_ListOfCairi speco:List_Of_Cairi_29_10 ;
+  speco:regulationOnCovid19_Specifies_ReasonForMeasure speco:Travel_To_Cairi ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:federalOffice_Dictates_InstructionSheet ;
+            sp:subject speco:Federal_Office_Public_Health ;
+          ]
+        ) ;
+    ] ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Travel_To_Cairi ;
+            sp:predicate speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Instruction Quarantine for persons arriving in Switzerland" ;
+.
+speco:Instruction_for_Testing_Ambulatory_Sector
+  rdf:type speco:InstructionSheet ;
+  speco:URL "https://www.bag.admin.ch/dam/bag/de/dokumente/mt/k-und-i/aktuelle-ausbrueche-pandemien/2019-nCoV/empfehlungen-zur-diagnose-von-covid-19.pdf.download.pdf/Empfehlungen_zur_Diagnose_von_COVID-19.pdf" ;
+  speco:dateOfLastUpdate "2020-12-11"^^xsd:date ;
+  speco:description "This instruction sheet provides up to date information about recomendations on Testing for health organizations working in the ambulatory domain." ;
+  speco:instructionSheet_Regulates_Isolation speco:Isolation_Of_Bob ;
+  speco:instructionSheet_Regulates_Isolation speco:Isolation_Of_Florian ;
+  speco:instructionSheet_Regulates_Test speco:Test_Of_Bob ;
+  speco:instructionSheet_Regulates_Test speco:Test_Of_Florian ;
+  speco:instructionSheet_Specifies_PositiveTest speco:Positive_Test_Of_Bob ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:federalOffice_Dictates_InstructionSheet ;
+            sp:subject speco:Federal_Office_Public_Health ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Instruction for Testing Ambulatory Sector" ;
+.
+speco:Isolation
+  rdf:type owl:Class ;
+  rdfs:label "Isolation" ;
+  rdfs:subClassOf speco:MeasureAvoidPhysicalContact ;
+.
+speco:Isolation_Of_Bob
+  rdf:type speco:Isolation ;
+  speco:description "Isolation of the Patient Bob." ;
+  rdfs:label "Isolation Of Bob" ;
+.
+speco:Isolation_Of_Florian
+  rdf:type speco:Isolation ;
+  speco:description "Isolation of the patient Florian." ;
+  rdfs:label "Isolation Of Florian" ;
+.
+speco:John
+  rdf:type speco:HealthEmployee ;
+  speco:healthEmployee_AllowedToTreat_Patient speco:Bob ;
+  speco:healthEmployee_AllowedToTreat_Patient speco:Felix ;
+  speco:healthEmployee_AllowedToTreat_Patient speco:Lucas ;
+  speco:healthEmployee_WorksAt_HealthOrganization speco:SPITEX ;
+  speco:symptomatic "false"^^xsd:boolean ;
+  rdfs:label "John" ;
+.
+speco:Law
+  rdf:type owl:Class ;
+  rdfs:label "Law" ;
+  rdfs:subClassOf speco:RegulationOnCovid19 ;
+.
+speco:Law_Legal_Basis_Ordinances_Federal_Council_Deal_Covid_19_Epidemic
+  rdf:type speco:Law ;
+  speco:URL "https://www.admin.ch/opc/en/classified-compilation/20201948/index.html" ;
+  speco:dateOfLastUpdate "2020-12-19"^^xsd:date ;
+  speco:description "This Law is the legal basis for any regulation pertaining stately ordered measures about the Covid-19 Epidemic." ;
+  speco:law_Regulates_InstructionSheet speco:Instruction_Compensation_Due_To_Measures_Against_Coronavirus ;
+  speco:law_Regulates_InstructionSheet speco:Instruction_Isolation ;
+  speco:law_Regulates_InstructionSheet speco:Instruction_Quarantine ;
+  speco:law_Regulates_InstructionSheet speco:Instruction_Quarantine_Arrival_Switzerland ;
+  speco:law_Regulates_InstructionSheet speco:Instruction_for_Testing_Ambulatory_Sector ;
+  speco:law_Regulates_Ordinance speco:Ordinance_Measures_Combat_Coronavirus_International_Passenger_Transport ;
+  rdfs:label "Law Legal Basis Ordinances Federal Council Deal Covid 19 Epidemic" ;
+.
+speco:Law_on_epidemics
+  rdf:type speco:Law ;
+  speco:URL "https://www.admin.ch/opc/de/classified-compilation/20071012/index.html" ;
+  speco:dateOfLastUpdate "2020-06-25"^^xsd:date ;
+  speco:description "This Law is the legal basis for any regulation pertaining stately ordered measures about epidemics." ;
+  speco:law_Regulates_Law speco:Law_Legal_Basis_Ordinances_Federal_Council_Deal_Covid_19_Epidemic ;
+  speco:law_Regulates_Ordinance speco:Ordinance_Measures_Combat_Coronavirus_International_Passenger_Transport ;
+  rdfs:comment "This Law is the legal basis for all other documents modelled in the Ontology." ;
+  rdfs:label "law on epidemics" ;
+.
+speco:ListOfCairi
+  rdf:type owl:Class ;
+  rdfs:label "List of cairi" ;
+  rdfs:subClassOf speco:RegulationOnCovid19 ;
+.
+speco:ListOfCairi_Regulates_Quarantine
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:ListOfCairi ;
+  rdfs:label "list Of Cairi Regulates Quarantine" ;
+  rdfs:range speco:Quarantine ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_Measure ;
+.
+speco:List_Of_Cairi_23_11
+  rdf:type speco:ListOfCairi ;
+  speco:ListOfCairi_Regulates_Quarantine speco:Quarantine_Of_Stacy ;
+  speco:URL "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/empfehlungen-fuer-reisende/quarantaene-einreisende.html#517241576" ;
+  speco:dateOfEnd "2020-12-13"^^xsd:date ;
+  speco:dateOfLastUpdate "2020-12-19"^^xsd:date ;
+  speco:dateOfStart "2020-11-23"^^xsd:date ;
+  speco:description "This list contains all CAIRI from the 23.11 until the next update." ;
+  speco:regulationOnCovid19_Specifies_ReasonForMeasure speco:Travel_To_Cairi ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Travel_To_Cairi ;
+            sp:predicate speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "List Of Cairi 23 11" ;
+.
+speco:List_Of_Cairi_29_10
+  rdf:type speco:ListOfCairi ;
+  speco:ListOfCairi_Regulates_Quarantine speco:Quarantine_Of_Stacy ;
+  speco:URL "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/empfehlungen-fuer-reisende/quarantaene-einreisende.html#517241576" ;
+  speco:dateOfEnd "2020-11-22"^^xsd:date ;
+  speco:dateOfStart "2020-10-29"^^xsd:date ;
+  speco:regulationOnCovid19_Regulates_Measure speco:Quarantine_Of_Stacy ;
+  speco:regulationOnCovid19_Specifies_ReasonForMeasure speco:Travel_To_Cairi ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Travel_To_Cairi ;
+            sp:predicate speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "List Of Cairi 29 10" ;
+.
+speco:Lucas
+  rdf:type speco:Patient ;
+  speco:Patient_LivesIn_PrivateHome speco:Home_Of_Lucas ;
+  rdfs:label "Lucas" ;
+.
+speco:Measure
+  rdf:type owl:Class ;
+  rdfs:label "Measure" ;
+  rdfs:subClassOf owl:Thing ;
+.
+speco:MeasureAvoidPhysicalContact
+  rdf:type owl:Class ;
+  rdfs:label "Measure avoid physical contact" ;
+  rdfs:subClassOf speco:Measure ;
+.
+speco:Office
+  rdf:type owl:Class ;
+  rdfs:label "Office" ;
+  rdfs:subClassOf <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+.
+speco:Ordinance
+  rdf:type owl:Class ;
+  rdfs:label "Ordinance" ;
+  rdfs:subClassOf speco:RegulationOnCovid19 ;
+.
+speco:Ordinance_Measures_Combat_Coronavirus_International_Passenger_Transport
+  rdf:type speco:Ordinance ;
+  speco:URL "https://www.admin.ch/opc/de/classified-compilation/20201948/index.html" ;
+  speco:description "This ordinance regulates all measures pertaining stately ordered measures regarding international passenger transport in the context of the Covid-19 pandemic." ;
+  speco:ordinance_Regulates_InstructionSheet speco:Instruction_Quarantine_Arrival_Switzerland ;
+  rdfs:label "Ordinance Measures Combat Coronavirus International Passenger Transport" ;
+.
+speco:Patient
+  rdf:type owl:Class ;
+  rdfs:label "Patient" ;
+  rdfs:subClassOf <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+.
+speco:Patient_LivesIn_PrivateHome
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label " patient Lives In Private Home" ;
+  rdfs:range speco:PrivateHome ;
+  rdfs:subPropertyOf speco:patient_LivesIn_PlaceOfTreatment ;
+.
+speco:PlaceOfTreatment
+  rdf:type owl:Class ;
+  rdfs:label "Place of treatment" ;
+  rdfs:subClassOf <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+.
+speco:PositiveTest
+  rdf:type owl:Class ;
+  rdfs:label "Reasons for test" ;
+  rdfs:subClassOf speco:ReasonForMeasure ;
+.
+speco:Positive_Test_Of_Bob
+  rdf:type speco:PositiveTest ;
+  speco:positiveTest_Justifies_Isolation speco:Isolation_Of_Bob ;
+  rdfs:label "Positive Test Of Bob" ;
+.
+speco:PrivateHome
+  rdf:type owl:Class ;
+  rdfs:label "Private home" ;
+  rdfs:subClassOf speco:PlaceOfTreatment ;
+.
+speco:Quarantine
+  rdf:type owl:Class ;
+  rdfs:label "Quarantine" ;
+  rdfs:subClassOf speco:MeasureAvoidPhysicalContact ;
+.
+speco:Quarantine_Of_Alex
+  rdf:type speco:Quarantine ;
+  speco:description "The quarantine observed by the Helath Employee Alex." ;
+  speco:minimum_Period 10 ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:cantonalOffice_ExemptsFrom_Quarantine ;
+            sp:subject speco:Basel_City ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Quarantine of Alex" ;
+.
+speco:Quarantine_Of_Stacy
+  rdf:type speco:Quarantine ;
+  speco:description "The quarantine of the health employee Florian." ;
+  speco:minimum_Period 10 ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object" ;
+              ] ;
+            sp:predicate speco:InstructionSheet_Regulates_Quarantine ;
+            sp:subject speco:Instruction_Quarantine_Arrival_Switzerland ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Quarantine Of Stacy" ;
+.
+speco:ReasonForMeasure
+  rdf:type owl:Class ;
+  rdfs:label "Reasons for measure" ;
+  rdfs:subClassOf owl:Thing ;
+.
+speco:RegulationOnCovid19
+  rdf:type owl:Class ;
+  rdfs:label "Document" ;
+  rdfs:subClassOf <http://fhnw.ch/modelingEnvironment/dkmm#Data_Document> ;
+.
+speco:SPITEX
+  rdf:type speco:HealthOrganization ;
+  speco:address "Feierabendstrasse 44, 4051 Basel" ;
+  speco:description "Helath organization treating patients in private homes and senior homes." ;
+  speco:healthOrganization_RefersTo_InstructionsSheet speco:Instruction_Compensation_Due_To_Measures_Against_Coronavirus ;
+  speco:healthOrganization_RefersTo_InstructionsSheet speco:Instruction_Isolation ;
+  speco:healthOrganization_RefersTo_InstructionsSheet speco:Instruction_Quarantine ;
+  speco:healthOrganization_RefersTo_InstructionsSheet speco:Instruction_Quarantine_Arrival_Switzerland ;
+  speco:healthOrganization_RefersTo_InstructionsSheet speco:Instruction_for_Testing_Ambulatory_Sector ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Instruction_Compensation_Due_To_Measures_Against_Coronavirus ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Instruction_Isolation ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Instruction_Quarantine ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Instruction_Quarantine_Arrival_Switzerland ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Law_Legal_Basis_Ordinances_Federal_Council_Deal_Covid_19_Epidemic ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Law_on_epidemics ;
+  speco:healthOrganization_RefersTo_RegulationOnCovid19 speco:Ordinance_Measures_Combat_Coronavirus_International_Passenger_Transport ;
+  spin:query [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object speco:Isolation_Of_Florian ;
+            sp:predicate speco:healthOrganization_Finances_Isolation ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Isolation_Of_Florian ;
+            sp:predicate speco:healthEmployee_Follows_Isolation ;
+            sp:subject speco:Florian ;
+          ]
+          [
+            sp:object spin:_this ;
+            sp:predicate speco:healthEmployee_WorksAt_HealthOrganization ;
+            sp:subject speco:Florian ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type speco:HealthOrganization ;
+                sp:arg1 speco:Isolation_Of_Florian ;
+              ] ;
+            sp:variable [
+                sp:varName "s" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "SPITEX" ;
+.
+speco:SeniorHome
+  rdf:type owl:Class ;
+  rdfs:label "Senior home" ;
+  rdfs:subClassOf speco:PlaceOfTreatment ;
+.
+speco:Stacy
+  rdf:type speco:HealthEmployee ;
+  speco:healthEmployee_AllowedToTreat_Patient speco:Felix ;
+  speco:healthEmployee_Follows_Quarantine speco:Quarantine_Of_Stacy ;
+  speco:healthEmployee_WorksAt_HealthOrganization speco:SPITEX ;
+  speco:role_Has_ReasonForMeasure speco:Travel_To_Cairi ;
+  speco:symptomatic "false"^^xsd:boolean ;
+  spin:query [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object speco:Quarantine_Of_Stacy ;
+            sp:predicate speco:healthEmployee_Finances_Quarantine ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Quarantine_Of_Stacy ;
+            sp:predicate speco:healthEmployee_Follows_Quarantine ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object speco:Quarantine_Of_Stacy ;
+            sp:predicate speco:reasonForMeasure_Justifies_Measure ;
+            sp:subject speco:Travel_To_Cairi ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type speco:HealthEmployee ;
+                sp:arg1 speco:Quarantine_Of_Stacy ;
+              ] ;
+            sp:variable [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Stacy" ;
+.
+speco:Symptom
+  rdf:type owl:Class ;
+  rdfs:label "Symptom" ;
+  rdfs:subClassOf speco:ReasonForMeasure ;
+.
+speco:Test
+  rdf:type owl:Class ;
+  rdfs:label "Test" ;
+  rdfs:subClassOf speco:Measure ;
+.
+speco:Test_Of_Bob
+  rdf:type speco:Test ;
+  speco:description "The test undergone by Bob." ;
+  speco:testResult "Positive" ;
+  rdfs:label "Test Of Bob" ;
+.
+speco:Test_Of_Florian
+  rdf:type speco:Test ;
+  speco:description "The test undergone by Florian." ;
+  speco:testResult "Negative" ;
+  rdfs:label "Test Of Florian" ;
+.
+speco:Travel_To_Cairi
+  rdf:type speco:ReasonForMeasure ;
+  speco:reasonForMeasure_Justifies_Measure speco:Quarantine_Of_Stacy ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Quarantine_Of_Stacy ;
+            sp:predicate speco:reasonForMeasure_Justifies_Measure ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Travel To Cairi" ;
+.
+speco:URL
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:RegulationOnCovid19 ;
+  rdfs:label "URL" ;
+  rdfs:range xsd:string ;
+.
+speco:We_Die_Old_Gmbh
+  rdf:type speco:SeniorHome ;
+  speco:address "Old Street, 4057 Basel" ;
+  speco:description "This is the senior home called \"We die old\", based in Basel." ;
+  rdfs:label "We Die Old Gmbh" ;
+.
+speco:address
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+  rdfs:label "address" ;
+  rdfs:range xsd:string ;
+.
+speco:cantonalOffice_ExemptsFrom_Quarantine
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:CantonalOffice ;
+  rdfs:label "cantonal Office Exempts From Quarantine" ;
+  rdfs:range speco:Quarantine ;
+  rdfs:subPropertyOf speco:organizationalUnit_Manages_Measure ;
+.
+speco:cantonalOffice_Finances_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:CantonalOffice ;
+  rdfs:label "cantonal office Finances Measure" ;
+  rdfs:range speco:Measure ;
+  rdfs:subPropertyOf speco:organizationalModelElement_finances_Measure ;
+.
+speco:cantonalOffice_Finances_Quarantine
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:CantonalOffice ;
+  rdfs:label "cantonal Office Finances Quarantine" ;
+  rdfs:range speco:Quarantine ;
+  rdfs:subPropertyOf speco:cantonalOffice_Finances_Measure ;
+.
+speco:cantonalOffice_Orders_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:CantonalOffice ;
+  rdfs:label "cantonal Office Orders Measure" ;
+  rdfs:range speco:Measure ;
+  rdfs:subPropertyOf speco:organizationalUnit_Manages_Measure ;
+.
+speco:countries
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "countries" ;
+  rdfs:range xsd:string ;
+.
+speco:dateOfEnd
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:MeasureAvoidPhysicalContact ;
+  rdfs:label "date Of End" ;
+  rdfs:range xsd:date ;
+.
+speco:dateOfLastUpdate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:RegulationOnCovid19 ;
+  rdfs:label "date Of Last Update" ;
+  rdfs:range xsd:date ;
+.
+speco:dateOfStart
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:MeasureAvoidPhysicalContact ;
+  rdfs:label "date Of Start" ;
+  rdfs:range xsd:date ;
+.
+speco:description
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:RegulationOnCovid19 ;
+  rdfs:label "description" ;
+  rdfs:range xsd:string ;
+.
+speco:federalOffice_Dictates_InstructionSheet
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "federal Office Dictates Instruction Sheet" ;
+  rdfs:range speco:InstructionSheet ;
+  rdfs:subPropertyOf speco:federalOffice_Dictates_RegulationOnCovid19 ;
+.
+speco:federalOffice_Dictates_Law
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "federal office Dictates Law" ;
+  rdfs:range speco:Law ;
+  rdfs:subPropertyOf speco:federalOffice_Dictates_RegulationOnCovid19 ;
+.
+speco:federalOffice_Dictates_ListOfCairi
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "federal Office Dictates List Of Cairi" ;
+  rdfs:range speco:ListOfCairi ;
+  rdfs:subPropertyOf speco:federalOffice_Dictates_RegulationOnCovid19 ;
+.
+speco:federalOffice_Dictates_Ordinance
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "federal office Dicatets Ordinance" ;
+  rdfs:range speco:Ordinance ;
+  rdfs:subPropertyOf speco:federalOffice_Dictates_RegulationOnCovid19 ;
+.
+speco:federalOffice_Dictates_RegulationOnCovid19
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "dictates" ;
+  rdfs:range speco:RegulationOnCovid19 ;
+.
+speco:federalOffice_Finances_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "federal Office Finances Measure" ;
+  rdfs:range speco:Measure ;
+  rdfs:subPropertyOf speco:organizationalModelElement_finances_Measure ;
+.
+speco:federalOffice_Finances_Test
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:FederalOffice ;
+  rdfs:label "federal Office Finances Test" ;
+  rdfs:range speco:Test ;
+  rdfs:subPropertyOf speco:federalOffice_Finances_Measure ;
+.
+speco:healthEmployee_AllowedToTreat_Patient
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health employee Allowed to treat Patient" ;
+  rdfs:range speco:Patient ;
+.
+speco:healthEmployee_Finances_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Finances Measure" ;
+  rdfs:range speco:Measure ;
+  rdfs:subPropertyOf speco:organizationalModelElement_finances_Measure ;
+.
+speco:healthEmployee_Finances_Quarantine
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Finances Quarantine" ;
+  rdfs:range speco:Quarantine ;
+  rdfs:subPropertyOf speco:healthEmployee_Finances_Measure ;
+.
+speco:healthEmployee_Follows_Isolation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "healthEmployee Follows Isolation" ;
+  rdfs:range speco:Isolation ;
+  rdfs:subPropertyOf speco:role_Follows_Measure ;
+.
+speco:healthEmployee_Follows_Quarantine
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Follows Quarantine" ;
+  rdfs:range speco:Quarantine ;
+  rdfs:subPropertyOf speco:role_Follows_Measure ;
+.
+speco:healthEmployee_Follows_Test
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Follows Test" ;
+  rdfs:range speco:Test ;
+  rdfs:subPropertyOf speco:role_Follows_Measure ;
+.
+speco:healthEmployee_HadCloseContactWith_HealthEmployee
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Had Close Contact With Health employee" ;
+  rdfs:range speco:HealthEmployee ;
+  rdfs:subPropertyOf speco:role_hadCloseContactWith_Role ;
+.
+speco:healthEmployee_HadCloseContactWith_Patient
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Had close contact With Patient" ;
+  rdfs:range speco:Patient ;
+  rdfs:subPropertyOf speco:role_hadCloseContactWith_Role ;
+.
+speco:healthEmployee_Has_PositiveTest
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Has PositiveTest" ;
+  rdfs:range speco:PositiveTest ;
+  rdfs:subPropertyOf speco:role_Has_ReasonForMeasure ;
+.
+speco:healthEmployee_Has_Symptom
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Has Symptom" ;
+  rdfs:range speco:Symptom ;
+  rdfs:subPropertyOf speco:role_Has_ReasonForMeasure ;
+.
+speco:healthEmployee_WorksAt_HealthOrganization
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "health Employee Works At Health Organization" ;
+  rdfs:range speco:HealthOrganization ;
+.
+speco:healthOrganization_Finances_Isolation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthOrganization ;
+  rdfs:label "helth Organization Finances Isolation" ;
+  rdfs:range speco:Isolation ;
+  rdfs:subPropertyOf speco:healthOrganization_Finances_Measure ;
+.
+speco:healthOrganization_Finances_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthOrganization ;
+  rdfs:label "health Organization Finances Measure" ;
+  rdfs:range speco:Measure ;
+  rdfs:subPropertyOf speco:organizationalModelElement_finances_Measure ;
+.
+speco:healthOrganization_RefersTo_InstructionsSheet
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthOrganization ;
+  rdfs:label "health organization Refers to Instructions sheet" ;
+  rdfs:range speco:InstructionSheet ;
+  rdfs:subPropertyOf speco:healthOrganization_RefersTo_RegulationOnCovid19 ;
+.
+speco:healthOrganization_RefersTo_RegulationOnCovid19
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:HealthOrganization ;
+  rdfs:label "health Organization Refers To Regulation On Covid-19" ;
+  rdfs:range speco:RegulationOnCovid19 ;
+.
+speco:instructionSheet_Regulates_Isolation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:InstructionSheet ;
+  rdfs:label "instruction Sheet Regulates Isolation" ;
+  rdfs:range speco:Isolation ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_Measure ;
+.
+speco:instructionSheet_Regulates_ListOfCairi
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:InstructionSheet ;
+  rdfs:label "instruction Sheet Regulates List Of Cairi" ;
+  rdfs:range speco:ListOfCairi ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_RegulationOnCovid19 ;
+.
+speco:instructionSheet_Regulates_Test
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:InstructionSheet ;
+  rdfs:label "instruction Sheet Regulates Test" ;
+  rdfs:range speco:Test ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_Measure ;
+.
+speco:instructionSheet_Specifies_PositiveTest
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:InstructionSheet ;
+  rdfs:label "instruction sheet Specifies Positive test" ;
+  rdfs:range speco:PositiveTest ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+.
+speco:instructionSheet_Specifies_Symptom
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:InstructionSheet ;
+  rdfs:label "instruction sheet Specifies Symptom" ;
+  rdfs:range speco:Symptom ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Specifies_ReasonForMeasure ;
+.
+speco:law_Regulates_InstructionSheet
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Law ;
+  rdfs:label "Law Regulates Instruction sheet" ;
+  rdfs:range speco:InstructionSheet ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_RegulationOnCovid19 ;
+.
+speco:law_Regulates_Law
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Law ;
+  rdfs:label "law Regulates Law" ;
+  rdfs:range speco:Law ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_RegulationOnCovid19 ;
+.
+speco:law_Regulates_Ordinance
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Law ;
+  rdfs:label "law Regulates Ordinance" ;
+  rdfs:range speco:Ordinance ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_RegulationOnCovid19 ;
+.
+speco:minimum_Period
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:MeasureAvoidPhysicalContact ;
+  rdfs:label "Minimum Period" ;
+  rdfs:range xsd:integer ;
+.
+speco:ordinance_Regulates_InstructionSheet
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Ordinance ;
+  rdfs:label "ordinance Regulates Instruction sheet" ;
+  rdfs:range speco:InstructionSheet ;
+  rdfs:subPropertyOf speco:regulationOnCovid19_Regulates_RegulationOnCovid19 ;
+.
+speco:organizationalModelElement_finances_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalModelElement> ;
+  rdfs:label "organizational Model Element Finances Measure" ;
+  rdfs:range speco:Measure ;
+.
+speco:organizationalUnit_Manages_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://fhnw.ch/OrganizationalModel/orgm#OrganizationalUnit> ;
+  rdfs:label "organizational Unit Manages Measure" ;
+  rdfs:range speco:Measure ;
+.
+speco:patient_Follows_Isolation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label "patient Follows Isolation" ;
+  rdfs:range speco:Isolation ;
+  rdfs:subPropertyOf speco:role_Follows_Measure ;
+.
+speco:patient_Follows_Test
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label "Patient Follows Test" ;
+  rdfs:range speco:Test ;
+  rdfs:subPropertyOf speco:role_Follows_Measure ;
+.
+speco:patient_Has_PositiveTest
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label "patient Has Positive Test" ;
+  rdfs:range speco:PositiveTest ;
+  rdfs:subPropertyOf speco:role_Has_ReasonForMeasure ;
+.
+speco:patient_Has_Symptom
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label "patient Has Symptom" ;
+  rdfs:range speco:Symptom ;
+  rdfs:subPropertyOf speco:role_Has_ReasonForMeasure ;
+.
+speco:patient_LivesIn_PlaceOfTreatment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label "patient Lives In Place Of Treatment" ;
+  rdfs:range speco:PlaceOfTreatment ;
+.
+speco:patient_LivesIn_SeniorHome
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Patient ;
+  rdfs:label "patient Lives In Senior Home" ;
+  rdfs:range speco:SeniorHome ;
+  rdfs:subPropertyOf speco:patient_LivesIn_PlaceOfTreatment ;
+.
+speco:positiveTest_Justifies_Isolation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:PositiveTest ;
+  rdfs:label "positive Test Justifies Isolation" ;
+  rdfs:range speco:Isolation ;
+  rdfs:subPropertyOf speco:reasonForMeasure_Justifies_Measure ;
+.
+speco:reasonForMeasure_Justifies_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:ReasonForMeasure ;
+  rdfs:label "resaonForMeasure Justifies Measure" ;
+  rdfs:range speco:Measure ;
+.
+speco:regulationOnCovid19_Regulates_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:RegulationOnCovid19 ;
+  rdfs:label "regulationOnCovid19 Regulates Measure" ;
+  rdfs:range speco:Measure ;
+.
+speco:regulationOnCovid19_Regulates_RegulationOnCovid19
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:RegulationOnCovid19 ;
+  rdfs:label "regulation On Covid19 Regulates Regulation On Covid19" ;
+  rdfs:range speco:RegulationOnCovid19 ;
+.
+speco:regulationOnCovid19_Specifies_ReasonForMeasure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:RegulationOnCovid19 ;
+  rdfs:label "regulationOnCovid19 Specifies ReasonForMeasure" ;
+  rdfs:range speco:ReasonForMeasure ;
+.
+speco:role_Follows_Measure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+  rdfs:label "role Follows Measure" ;
+  rdfs:range speco:Measure ;
+.
+speco:role_Has_ReasonForMeasure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+  rdfs:label "role Has Reason For measure" ;
+  rdfs:range speco:ReasonForMeasure ;
+.
+speco:role_hadCloseContactWith_Role
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+  rdfs:label "role Had Close Contact With Role" ;
+  rdfs:range <http://fhnw.ch/OrganizationalModel/orgm#Role> ;
+.
+speco:symptom_Bob
+  rdf:type speco:Symptom ;
+  speco:description "The symptom cough that Bob has." ;
+  speco:symptom_Justifies_Isolation speco:Isolation_Of_Bob ;
+  speco:symptom_Justifies_Test speco:Test_Of_Bob ;
+  rdfs:label "Symptom Of Bob" ;
+.
+speco:symptom_Florian
+  rdf:type speco:Symptom ;
+  speco:symptom_Justifies_Isolation speco:Isolation_Of_Florian ;
+  speco:symptom_Justifies_Test speco:Test_Of_Florian ;
+  spin:query [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject" ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object speco:Test_Of_Florian ;
+            sp:predicate speco:symptom_Justifies_Test ;
+            sp:subject [
+                sp:varName "subject" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Symptom Of Florian" ;
+.
+speco:symptom_Justifies_Isolation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Symptom ;
+  rdfs:label "symptom Justifies Isolation" ;
+  rdfs:range speco:Isolation ;
+  rdfs:subPropertyOf speco:reasonForMeasure_Justifies_Measure ;
+.
+speco:symptom_Justifies_Test
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain speco:Symptom ;
+  rdfs:label "symptom Justifies Test" ;
+  rdfs:range speco:Test ;
+  rdfs:subPropertyOf speco:reasonForMeasure_Justifies_Measure ;
+.
+speco:symptomatic
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:HealthEmployee ;
+  rdfs:label "symptomatic" ;
+  rdfs:range xsd:boolean ;
+.
+speco:testResult
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain speco:Test ;
+  rdfs:label "testResult" ;
+  rdfs:range xsd:string ;
+.

@@ -1,0 +1,112 @@
+# baseURI: http://fhnw.ch/OrganizationalModel
+
+@prefix orgm: <http://fhnw.ch/OrganizationalModel/orgm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://fhnw.ch/OrganizationalModel>
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+orgm:OUbelongsToOU
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:OrganizationalUnit ;
+  rdfs:label "Organizational unit belongs to organizational unit" ;
+  rdfs:range orgm:OrganizationalUnit ;
+.
+orgm:aggregatesOU
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:Team ;
+  rdfs:label "aggregates organizational unit" ;
+  rdfs:range orgm:OrganizationalUnit ;
+.
+orgm:aggregatesPerformer
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:Team ;
+  rdfs:label "aggregates performer" ;
+  rdfs:range orgm:Performer ;
+.
+orgm:aggregatesRole
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:Team ;
+  rdfs:label "aggregates role" ;
+  rdfs:range orgm:Role ;
+.
+orgm:belongsToOU
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:Role ;
+  rdfs:label "role belongs to organizational unit" ;
+  rdfs:range orgm:OrganizationalUnit ;
+.
+orgm:hasRole
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:Performer ;
+  rdfs:label "Performer has role" ;
+  rdfs:range orgm:Role ;
+.
+orgm:isManagerOfOU
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain orgm:Performer ;
+  rdfs:label "Performer is manager of organizational unit" ;
+  rdfs:range orgm:OrganizationalUnit ;
+.
+orgm:Aggregation
+  rdf:type owl:Class ;
+  rdfs:label "Aggregation" ;
+  rdfs:subClassOf orgm:OrganizationalModelConnector ;
+.
+orgm:Assignment
+  rdf:type owl:Class ;
+  rdfs:label "Assignment" ;
+  rdfs:subClassOf orgm:OrganizationalModelConnector ;
+.
+orgm:Belonging
+  rdf:type owl:Class ;
+  rdfs:label "Belonging" ;
+  rdfs:subClassOf orgm:OrganizationalModelConnector ;
+.
+orgm:ManagerAssignment
+  rdf:type owl:Class ;
+  rdfs:label "Manager Assignment" ;
+  rdfs:subClassOf orgm:Assignment ;
+.
+orgm:OrganizationalModelConnector
+  rdf:type owl:Class ;
+  rdfs:label "Relations" ;
+.
+orgm:OrganizationalModelElement
+  rdf:type owl:Class ;
+  rdfs:label "Organizational Model Element" ;
+.
+orgm:OrganizationalUnit
+  rdf:type owl:Class ;
+  rdfs:label "Organizational Unit" ;
+  rdfs:subClassOf orgm:OrganizationalModelElement ;
+.
+orgm:Performer
+  rdf:type owl:Class ;
+  rdfs:label "Performer" ;
+  rdfs:subClassOf orgm:OrganizationalModelElement ;
+.
+orgm:Role
+  rdf:type owl:Class ;
+  rdfs:label "Role" ;
+  rdfs:subClassOf orgm:OrganizationalModelElement ;
+.
+orgm:RoleAssignment
+  rdf:type owl:Class ;
+  rdfs:label "Role Assignment" ;
+  rdfs:subClassOf orgm:Assignment ;
+.
+orgm:Subordination
+  rdf:type owl:Class ;
+  rdfs:label "Subordination" ;
+  rdfs:subClassOf orgm:OrganizationalModelConnector ;
+.
+orgm:Team
+  rdf:type owl:Class ;
+  rdfs:label "Team" ;
+  rdfs:subClassOf orgm:OrganizationalModelElement ;
+.
